@@ -6,5 +6,6 @@ function setupCommands(program) {
     program.name('ficli');
     (0, commands_1.setupGenCommand)(program);
     (0, commands_1.setupHelpCommand)(program);
+    (0, commands_1.setupInitCommand)(program);
 }
 exports.setupCommands = setupCommands;

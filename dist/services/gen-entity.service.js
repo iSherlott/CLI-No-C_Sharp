@@ -9,7 +9,7 @@ class GenEntityService {
         }
         return properties.join('\n');
     }
-    generatePropertiesSectionSetAndGet(argumentsJSON) {
+    generatePropertiesSectionSet(argumentsJSON) {
         const properties = [];
         for (const [name, type] of Object.entries(argumentsJSON)) {
             properties.push(`${indent}${indent}public void set${this.capitalizeFirstLetter(name)}(${type} ${name}) { this.${name} = ${name}; }`);
@@ -24,17 +24,15 @@ class GenEntityService {
     }
     generateFileContent(fName, argumentsJSON) {
         const propertiesSection = this.generatePropertiesSection(argumentsJSON);
+        const propertiesSectionSet = this.generatePropertiesSectionSet(argumentsJSON);
         return `using System.ComponentModel.DataAnnotations.Schema;
 
-namespace mf.domain.Entities
+namespace Domain.Entities
 {
 ${indent}public class ${fName}Entity : BaseEntity
 ${indent}{
 ${propertiesSection}
-${indent}${indent}public void setUsername(string username) { this.username = username; }
-${indent}${indent}public void setTag(string tag) { this.tag = tag; }
-${indent}${indent}public void setWallet(int wallet) { this.wallet = wallet; }
-${indent}${indent}public void setActive(bool active) { this.active = active; }
+${propertiesSectionSet}
 ${indent}}
 }`;
     }
