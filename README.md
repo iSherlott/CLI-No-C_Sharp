@@ -19,7 +19,7 @@ npm install
 ## Uso
 A CLI oferece os seguintes comandos:
 
-###`nc help`
+### `nc help`
 Exibe informações de ajuda sobre o uso da CLI.
 ```
 npm run start help
