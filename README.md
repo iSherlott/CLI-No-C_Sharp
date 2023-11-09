@@ -64,7 +64,7 @@ O projeto gerado seguirá a seguinte estrutura:
 npm run build: Compila o código TypeScript para JavaScript.
 npm start: Inicia a CLI.
 
-#Licença
+## Licença
 Este projeto é licenciado sob a Licença ISC. Consulte o arquivo LICENSE para obter detalhes.
 
 Observação: Certifique-se de ajustar as versões das dependências e outras informações conforme necessário no arquivo README.
