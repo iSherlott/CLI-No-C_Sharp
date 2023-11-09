@@ -122,6 +122,15 @@ function initializeProjectStructure(nomeProject: string) {
         const appsettings = InitAPI.nativeAppsettingsD();
         fs.writeFileSync(api + '/appsettings.json', JSON.stringify(appsettings));
 
+        const launchSettings = InitAPI.propertiesLaunchSettings();
+        fs.writeFileSync(api + "/Properties/launchSettings.json", JSON.stringify(launchSettings))
+
+        const homeController = InitAPI.homeController();
+        fs.writeFileSync(api + "/Controllers/homeController.cs", homeController);
+
+        const DependecyInjectionConfig = InitAPI.DependecyInjectionConfig();
+        fs.writeFileSync(api + "/Configurations/DependecyInjectionConfig.cs", DependecyInjectionConfig)
+
         console.log(`Projeto '${StringUtils.capitalizeFirstLetter(nomeProject)}' inicializado com sucesso.`);
     } catch (error) {
         console.error('Erro ao inicializar o projeto:', error);

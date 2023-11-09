@@ -3,10 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.InitIoC = void 0;
 class InitIoC {
     static nativeInjectorBootStrapperCode() {
-        return `using Domain.Handlers;
-using Domain.Repositories;
-using Infrastructure.Data;
-using Microsoft.Extensions.DependencyInjection;
+        return `using Microsoft.Extensions.DependencyInjection;
 
 namespace IoC
 {

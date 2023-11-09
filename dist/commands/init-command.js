@@ -93,6 +93,12 @@ function initializeProjectStructure(nomeProject) {
         fs_1.default.writeFileSync(api + '/appsettings.Development.json', JSON.stringify(appsettingsD));
         const appsettings = gen_init_api_services_1.InitAPI.nativeAppsettingsD();
         fs_1.default.writeFileSync(api + '/appsettings.json', JSON.stringify(appsettings));
+        const launchSettings = gen_init_api_services_1.InitAPI.propertiesLaunchSettings();
+        fs_1.default.writeFileSync(api + "/Properties/launchSettings.json", JSON.stringify(launchSettings));
+        const homeController = gen_init_api_services_1.InitAPI.homeController();
+        fs_1.default.writeFileSync(api + "/Controllers/HomeCOntroller.cs", homeController);
+        const DependecyInjectionConfig = gen_init_api_services_1.InitAPI.DependecyInjectionConfig();
+        fs_1.default.writeFileSync(api + "/Configurations/DependecyInjectionConfig.cs", DependecyInjectionConfig);
         console.log(`Projeto '${capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nomeProject)}' inicializado com sucesso.`);
     }
     catch (error) {

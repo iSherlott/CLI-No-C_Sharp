@@ -32,8 +32,7 @@ class InitInfra {
 </Project>`;
     }
     static nativeDatabaseConfig() {
-        return `using Domain.Repositories;
-using Infrastructure.Data;
+        return `using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -48,13 +47,10 @@ namespace Infrastructure.Configuration
             return services;
         }
     }
-}
-        `;
+}`;
     }
     static nativeApplicationDbContext() {
-        return `using Domain.Entities;
-using Infrastructure.Data.Mappings;
-using Microsoft.EntityFrameworkCore;
+        return `using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
@@ -73,8 +69,7 @@ namespace Infrastructure.Data
 
         }
     }
-}
-        `;
+}`;
     }
 }
 exports.InitInfra = InitInfra;

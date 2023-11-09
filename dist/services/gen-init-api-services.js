@@ -40,8 +40,7 @@ app.Run();
         `;
     }
     static nativeAPI() {
-        return `
-        <Project Sdk="Microsoft.NET.Sdk.Web">
+        return `<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -65,16 +64,15 @@ app.Run();
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mf.infra\mf.infra.csproj" />
-    <ProjectReference Include="..\mf.ioc\mf.ioc.csproj" />
+    <ProjectReference Include="..\\Infrastructure\\Infrastructure.csproj" />
+    <ProjectReference Include="..\\IoC\\IoC.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
+    <Folder Include="Configurations" />
   </ItemGroup>
 
-</Project>
-        `;
+</Project>`;
     }
     static nativeAppsettingsD() {
         return {
@@ -100,6 +98,92 @@ app.Run();
             "AllowedHosts": "*"
           }
         `;
+    }
+    static propertiesLaunchSettings() {
+        return {
+            "$schema": "https://json.schemastore.org/launchsettings.json",
+            "iisSettings": {
+                "windowsAuthentication": false,
+                "anonymousAuthentication": true,
+                "iisExpress": {
+                    "applicationUrl": "http://localhost:22534",
+                    "sslPort": 44318
+                }
+            },
+            "profiles": {
+                "API": {
+                    "commandName": "Project",
+                    "dotnetRunMessages": true,
+                    "launchBrowser": true,
+                    "launchUrl": "swagger",
+                    "applicationUrl": "https://localhost:7213;http://localhost:5057",
+                    "environmentVariables": {
+                        "ASPNETCORE_ENVIRONMENT": "Development"
+                    }
+                },
+                "IIS Express": {
+                    "commandName": "IISExpress",
+                    "launchBrowser": true,
+                    "launchUrl": "swagger",
+                    "environmentVariables": {
+                        "ASPNETCORE_ENVIRONMENT": "Development"
+                    }
+                }
+            }
+        };
+    }
+    static homeController() {
+        return `using Microsoft.AspNetCore.Mvc;
+using System;
+
+namespace API.Controllers
+{
+    [Route("api/")]
+    [ApiController]
+    public class HomeController : ControllerBase
+    {
+        private readonly DateTime _startupTime;
+
+        public HomeController()
+        {
+            _startupTime = DateTime.Now;
+        }
+
+        [HttpGet()]
+        public IActionResult IsOnline()
+        {
+            var response = new
+            {
+                data = new
+                {
+                    startupTime = _startupTime
+                },
+                message = "Rota gerada automaticamente para a Home",
+                status = 200
+            };
+
+            return Ok(response);
+        }
+    }
+}
+`;
+    }
+    static DependecyInjectionConfig() {
+        return `using IoC;
+
+namespace API.Configurations
+{
+    public static class DependecyInjectionConfig
+    {
+        public static void AddIoc(this IServiceCollection services)
+        {
+            if (services == null) throw new ArgumentNullException(nameof(services));
+            
+            NativeInjectorBootStrapper.RegisterServices(services);
+            
+        }
+    }
+}`;
     }
 }
 exports.InitAPI = InitAPI;

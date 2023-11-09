@@ -1,6 +1,6 @@
 export class InitInfra {
-    public static nativeInfrastructure(): string {
-        return `
+  public static nativeInfrastructure(): string {
+    return `
         <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -27,10 +27,9 @@ export class InitInfra {
   </ItemGroup>
 
 </Project>`
-    }
-    public static nativeDatabaseConfig(): string {
-        return `using Domain.Repositories;
-using Infrastructure.Data;
+  }
+  public static nativeDatabaseConfig(): string {
+    return `using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -45,14 +44,11 @@ namespace Infrastructure.Configuration
             return services;
         }
     }
-}
-        `
-    }
+}`
+  }
 
-    public static nativeApplicationDbContext(): string {
-        return `using Domain.Entities;
-using Infrastructure.Data.Mappings;
-using Microsoft.EntityFrameworkCore;
+  public static nativeApplicationDbContext(): string {
+    return `using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
@@ -71,7 +67,6 @@ namespace Infrastructure.Data
 
         }
     }
-}
-        `
-    }
+}`
+  }
 }

@@ -1,10 +1,7 @@
 export class InitIoC {
   public static nativeInjectorBootStrapperCode(): string {
 
-    return `using Domain.Handlers;
-using Domain.Repositories;
-using Infrastructure.Data;
-using Microsoft.Extensions.DependencyInjection;
+    return `using Microsoft.Extensions.DependencyInjection;
 
 namespace IoC
 {
