@@ -4,7 +4,8 @@
     "start": "node ./dist/index.js"
   },
   "dependencies": {
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "mustache": "^4.2.0"
   },
   "name": "cli",
   "version": "1.0.0",

@@ -1,5 +1,4 @@
-function generateGitignore() {
-    return `# User-specific files
+# User-specific files
 *.rsuser
 *.suo
 *.user
@@ -35,7 +34,7 @@ bld/
 #wwwroot/
 
 # Visual Studio 2017 auto generated files
-Generated\ Files/
+Generated Files/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -357,7 +356,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/mf.infra/Migrations`
-}
-
-export default generateGitignore();
+/mf.infra/Migrations
