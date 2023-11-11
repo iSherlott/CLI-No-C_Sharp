@@ -12,7 +12,7 @@ export function processFile(filePath: string): ProcessResult {
 
     const relativePath: string = path.relative(path.join(__dirname, 'template'), filePath);
 
-    const target: string = relativePath.replace(/\\/g, '/').split("/template")[1];
+    const target: string = relativePath.replace(/\\/g, '/').split("/template/init")[1];
 
     return {
         path: filePath,

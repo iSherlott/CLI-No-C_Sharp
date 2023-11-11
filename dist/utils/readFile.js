@@ -29,7 +29,7 @@ const path = __importStar(require("path"));
 function processFile(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const relativePath = path.relative(path.join(__dirname, 'template'), filePath);
-    const target = relativePath.replace(/\\/g, '/').split("/template")[1];
+    const target = relativePath.replace(/\\/g, '/').split("/template/init")[1];
     return {
         path: filePath,
         target: target,

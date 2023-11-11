@@ -38,7 +38,7 @@ function initializeProjectStructure(nomeProject) {
         'IoC',
     ];
     try {
-        const rootFolderPath = path_1.default.join(__dirname, '../template');
+        const rootFolderPath = path_1.default.join(__dirname, '../template/init');
         const template = (0, readFile_1.processDirectory)(rootFolderPath);
         fs_1.default.mkdirSync(projectPath);
         for (const folder of foldersToCreate) {

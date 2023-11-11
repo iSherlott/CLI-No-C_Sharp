@@ -1,10 +1,24 @@
 import { Command } from 'commander';
-import { setupGenCommand, setupHelpCommand, setupInitCommand } from '../commands';
+import {
+    setupHelpCommand,
+    setupInitCommand,
+    setupEntityCommand,
+    setupCommandCommand,
+    setupRepositoryCommand,
+    setupControllerCommand
+} from '../commands';
 
 export function setupCommands(program: Command) {
     program.name('nc');
 
-    setupGenCommand(program);
+    const genCommand = new Command('g');
+    program.addCommand(genCommand);
+
+    setupEntityCommand(genCommand);
+    setupCommandCommand(genCommand);
+    setupRepositoryCommand(genCommand);
+    setupControllerCommand(genCommand);
+
     setupHelpCommand(program);
     setupInitCommand(program);
 }
