@@ -1,17 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupCommandCommand = void 0;
-const commander_1 = require("commander");
 function setupCommandCommand(parentCommand) {
-    const commandCommand = new commander_1.Command('command <nameCommand> [options...]')
+    parentCommand.command('command <nameCommand>')
         .alias('f')
-        .alias('command')
-        .description('Generate a command')
-        .action((nameCommand, options, command) => {
+        .description('Generate an Command')
+        .action((nameCommand) => {
         console.log(`Generate command ${nameCommand}`);
+        console.log('Command:', nameCommand);
         console.log("Command");
-        // Adicione aqui a lógica para gerar o comando
+        // Adicione aqui a lógica para gerar a entidade
     });
-    parentCommand.addCommand(commandCommand);
 }
 exports.setupCommandCommand = setupCommandCommand;

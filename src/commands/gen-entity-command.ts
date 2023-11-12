@@ -1,15 +1,13 @@
 import { Command } from 'commander';
 
 export function setupEntityCommand(parentCommand: Command) {
-    const entityCommand = new Command('entity <nameEntity> [options...]')
+    parentCommand.command('entity <nameEntity>')
         .alias('e')
-        .alias('entity')
         .description('Generate an entity')
-        .action((nameEntity, options, command) => {
+        .action((nameEntity) => {
             console.log(`Generate entity ${nameEntity}`);
+            console.log('nameEntity:', nameEntity);
             console.log("Entity");
             // Adicione aqui a lógica para gerar a entidade
         });
-
-    parentCommand.addCommand(entityCommand);
 }

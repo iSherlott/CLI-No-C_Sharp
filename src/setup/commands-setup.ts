@@ -5,7 +5,8 @@ import {
     setupEntityCommand,
     setupCommandCommand,
     setupRepositoryCommand,
-    setupControllerCommand
+    setupControllerCommand,
+    setupHandlerCommand
 } from '../commands';
 
 export function setupCommands(program: Command) {
@@ -18,6 +19,8 @@ export function setupCommands(program: Command) {
     setupCommandCommand(genCommand);
     setupRepositoryCommand(genCommand);
     setupControllerCommand(genCommand);
+    setupHandlerCommand(genCommand);
+
 
     setupHelpCommand(program);
     setupInitCommand(program);

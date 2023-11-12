@@ -1,17 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupControllerCommand = void 0;
-const commander_1 = require("commander");
 function setupControllerCommand(parentCommand) {
-    const commandCommand = new commander_1.Command('controller <nameCommand> [options...]')
+    parentCommand.command('controller <nameController>')
         .alias('c')
-        .alias('controller')
-        .description('Generate a controller')
-        .action((nameCommand, options, command) => {
-        console.log(`Generate controller ${nameCommand}`);
+        .description('Generate an controller')
+        .action((nameRepository) => {
+        console.log(`Generate controller ${nameRepository}`);
+        console.log('Controller:', nameRepository);
         console.log("Controller");
-        // Adicione aqui a lógica para gerar o comando
+        // Adicione aqui a lógica para gerar a entidade
     });
-    parentCommand.addCommand(commandCommand);
 }
 exports.setupControllerCommand = setupControllerCommand;

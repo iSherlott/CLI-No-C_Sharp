@@ -11,6 +11,7 @@ function setupCommands(program) {
     (0, commands_1.setupCommandCommand)(genCommand);
     (0, commands_1.setupRepositoryCommand)(genCommand);
     (0, commands_1.setupControllerCommand)(genCommand);
+    (0, commands_1.setupHandlerCommand)(genCommand);
     (0, commands_1.setupHelpCommand)(program);
     (0, commands_1.setupInitCommand)(program);
 }

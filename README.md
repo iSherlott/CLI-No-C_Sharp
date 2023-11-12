@@ -5,6 +5,7 @@ Este projeto é uma CLI (Command Line Interface) desenvolvida em TypeScript para
 
 ## Dependências Principais
 commander: Biblioteca para criar interfaces de linha de comando.
+mustache: Para carregar e interpolar os arquivos template
 
 ## Pré-requisitos
 Certifique-se de ter o Node.js instalado para executar a CLI.
@@ -21,16 +22,27 @@ A CLI oferece os seguintes comandos:
 
 ### `nc help`
 Exibe informações de ajuda sobre o uso da CLI.
-```
-npm run start help
-```
 
-`nc new <nome do projeto>`
+### `nc g` ou `nc g help`
+Exibe informações de ajuda sobre os comandos de geração.
+
+### `nc new <nome do projeto>`
 Cria um novo projeto C# estruturado seguindo a arquitetura em camadas.
 
-```
-npm run start new <nome do projeto>
-```
+### `nc g entity` ou `nc g e`
+Commando ainda em manutenção!!!
+
+### `nc g command` ou `nc g f`
+Commando ainda em manutenção!!!
+
+### `nc g repository` ou `nc g r`
+Commando ainda em manutenção!!!
+
+### `nc g handler` ou `nc g h`
+Commando ainda em manutenção!!!
+
+### `nc g controler` ou `nc g c`
+Commando ainda em manutenção!!!
 
 ## Estrutura do Projeto C#
 O projeto gerado seguirá a seguinte estrutura:

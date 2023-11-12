@@ -1,15 +1,13 @@
 import { Command } from 'commander';
 
 export function setupControllerCommand(parentCommand: Command) {
-    const commandCommand = new Command('controller <nameCommand> [options...]')
+    parentCommand.command('controller <nameController>')
         .alias('c')
-        .alias('controller')
-        .description('Generate a controller')
-        .action((nameCommand, options, command) => {
-            console.log(`Generate controller ${nameCommand}`);
+        .description('Generate an controller')
+        .action((nameRepository) => {
+            console.log(`Generate controller ${nameRepository}`);
+            console.log('Controller:', nameRepository);
             console.log("Controller");
-            // Adicione aqui a lógica para gerar o comando
+            // Adicione aqui a lógica para gerar a entidade
         });
-
-    parentCommand.addCommand(commandCommand);
 }

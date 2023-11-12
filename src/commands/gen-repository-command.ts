@@ -1,15 +1,13 @@
 import { Command } from 'commander';
 
 export function setupRepositoryCommand(parentCommand: Command) {
-    const commandCommand = new Command('repository <nameCommand> [options...]')
+    parentCommand.command('repository <nameRepository>')
         .alias('r')
-        .alias('repository')
-        .description('Generate a repository')
-        .action((nameCommand, options, command) => {
-            console.log(`Generate repository ${nameCommand}`);
+        .description('Generate an repository')
+        .action((nameRepository) => {
+            console.log(`Generate repository ${nameRepository}`);
+            console.log('Repository:', nameRepository);
             console.log("Repository");
-            // Adicione aqui a lógica para gerar o comando
+            // Adicione aqui a lógica para gerar a entidade
         });
-
-    parentCommand.addCommand(commandCommand);
 }

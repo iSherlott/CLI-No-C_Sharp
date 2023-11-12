@@ -1,17 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupRepositoryCommand = void 0;
-const commander_1 = require("commander");
 function setupRepositoryCommand(parentCommand) {
-    const commandCommand = new commander_1.Command('repository <nameCommand> [options...]')
+    parentCommand.command('repository <nameRepository>')
         .alias('r')
-        .alias('repository')
-        .description('Generate a repository')
-        .action((nameCommand, options, command) => {
-        console.log(`Generate repository ${nameCommand}`);
+        .description('Generate an repository')
+        .action((nameRepository) => {
+        console.log(`Generate repository ${nameRepository}`);
+        console.log('Repository:', nameRepository);
         console.log("Repository");
-        // Adicione aqui a lógica para gerar o comando
+        // Adicione aqui a lógica para gerar a entidade
     });
-    parentCommand.addCommand(commandCommand);
 }
 exports.setupRepositoryCommand = setupRepositoryCommand;

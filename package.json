@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/index.js"
+    "start": "tsc --watch"
   },
   "dependencies": {
     "commander": "^11.1.0",
