@@ -28,7 +28,7 @@ export function initializeProjectStructure(nomeProject: string) {
     ];
 
     try {
-        const rootFolderPath: string = path.join(__dirname, '../template/init');
+        const rootFolderPath: string = path.join(__dirname, '../../template/init');
         const template = processDirectory(rootFolderPath);
 
         fs.mkdirSync(projectPath);

@@ -23,9 +23,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.processDirectory = exports.processFile = void 0;
+exports.processDirectory = exports.processFile = exports.readFile = void 0;
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
+function readFile(filePath) {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    return {
+        path: filePath,
+        content: fileContent
+    };
+}
+exports.readFile = readFile;
 function processFile(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const relativePath = path.relative(path.join(__dirname, 'template'), filePath);

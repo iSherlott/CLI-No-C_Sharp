@@ -30,7 +30,23 @@ Exibe informações de ajuda sobre os comandos de geração.
 Cria um novo projeto C# estruturado seguindo a arquitetura em camadas.
 
 ### `nc g entity` ou `nc g e`
-Commando ainda em manutenção!!!
+```nc g entity <nameEntity> [fields...]```
+
+Este comando gera uma entidade com o nome especificado e os campos fornecidos. Os campos devem ser fornecidos no formato name:type.
+
+#### Opções
+--postgres <postgreSQLFields>: Especifica campos adicionais para serem usados em bases de dados PostgreSQL. Os campos devem ser fornecidos no formato table:schema.
+
+#### Exemplos de Uso
+```
+# Criar uma entidade chamada "User" com os campos "name:string" e "age:int"
+nc g e User name:string age:int
+```
+
+```
+# Criar uma entidade chamada "Product" com os campos "name:string" e "price:decimal" e campos PostgreSQL adicionais
+nc g e Product name:string price:decimal --postgres products:public
+```
 
 ### `nc g command` ou `nc g f`
 Commando ainda em manutenção!!!
@@ -43,6 +59,9 @@ Commando ainda em manutenção!!!
 
 ### `nc g controler` ou `nc g c`
 Commando ainda em manutenção!!!
+
+### Notas
+Este comando está atualmente em manutenção, e novos recursos e opções serão adicionados em versões futuras. Fique atento para atualizações.
 
 ## Estrutura do Projeto C#
 O projeto gerado seguirá a seguinte estrutura:

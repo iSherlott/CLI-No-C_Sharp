@@ -3,8 +3,17 @@ import * as path from 'path';
 
 interface ProcessResult {
     path: string;
-    target: string;
+    target?: string;
     content: any;
+}
+
+export function readFile(filePath: string): ProcessResult {
+    const fileContent: string = fs.readFileSync(filePath, 'utf8');
+
+    return {
+        path: filePath,
+        content: fileContent
+    };
 }
 
 export function processFile(filePath: string): ProcessResult {
