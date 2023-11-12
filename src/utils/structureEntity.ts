@@ -18,7 +18,7 @@ export class StructureEntity {
         let result = "";
         for (const key in this.entity) {
             if (this.entity.hasOwnProperty(key)) {
-                result += `         this.${key} = ${this.entity[key]};\n`;
+                result += `            this.${key} = ${key};\n`;
             }
         }
         return result;
@@ -28,7 +28,7 @@ export class StructureEntity {
         let result = "";
         for (const key in this.entity) {
             if (this.entity.hasOwnProperty(key)) {
-                result += `         public ${key}: ${this.entity[key]} { get; set; }\n`;
+                result += `        public ${this.entity[key]} ${key} { get; set; }\n`;
             }
         }
         return result;
