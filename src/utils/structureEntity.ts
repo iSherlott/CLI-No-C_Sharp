@@ -14,6 +14,16 @@ export class StructureEntity {
         });
     }
 
+    public structureConstructor(): string {
+        let result = [];
+        for (const key in this.entity) {
+            if (this.entity.hasOwnProperty(key)) {
+                result.push(`${this.entity[key]} ${key}`);
+            }
+        }
+        return result.join(", ");
+    }
+
     public structureEntityThis(): string {
         let result = "";
         for (const key in this.entity) {

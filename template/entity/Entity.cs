@@ -1,12 +1,14 @@
+{{#database}}
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+{{/database}}
 namespace Domain.Entities
 {
     {{{database}}}
     public class {{name}} : BaseEntity
     {
-        public {{name}}(string name)
+        public {{name}}({{structureConstructor}})
         {
             {{& structureEntityThis}}
         }

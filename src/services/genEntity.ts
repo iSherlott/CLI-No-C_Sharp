@@ -21,6 +21,7 @@ export function genEntity(data: Entity) {
         const renderedTemplate = Mustache.render(template["content"], {
             name: data["name"],
             database: data["postgres"] ? `[Table("${data["postgres"]["table"]}", Schema = "${data["postgres"]["schema"]}")]` : null,
+            structureConstructor: entity.structureConstructor(),
             structureEntityThis: "\n" + entity.structureEntityThis(),
             structureEntityPublic: "\n" + entity.structureEntityPublic()
         });
@@ -34,6 +35,8 @@ export function genEntity(data: Entity) {
         } catch (error: any) {
             console.error('Invalid Local \n', error.message);
         }
+
+        console.log(`Entity '${data["name"]}' Criada com sucesso.`);
     } catch (error) {
         console.error('Erro ao gerar a entidade:', error);
     }

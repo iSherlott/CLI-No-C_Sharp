@@ -12,6 +12,15 @@ class StructureEntity {
             this.entity[trimmedFieldName] = trimmedFieldType;
         });
     }
+    structureConstructor() {
+        let result = [];
+        for (const key in this.entity) {
+            if (this.entity.hasOwnProperty(key)) {
+                result.push(`${this.entity[key]} ${key}`);
+            }
+        }
+        return result.join(", ");
+    }
     structureEntityThis() {
         let result = "";
         for (const key in this.entity) {
