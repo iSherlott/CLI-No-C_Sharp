@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
 
 namespace Infrastructure.Data
 {
@@ -8,6 +9,8 @@ namespace Infrastructure.Data
         : base(options)
         {
         }
+
+        {{dbSet}}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

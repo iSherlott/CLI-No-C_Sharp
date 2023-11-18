@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Entities
 {
     {{{database}}}
-    public class {{name}} : BaseEntity
+    public class {{name}} {{#baseSkip}}: BaseEntity {{/baseSkip}}
     {
         public {{name}}({{structureConstructor}})
         {

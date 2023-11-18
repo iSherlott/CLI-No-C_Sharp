@@ -6,5 +6,6 @@ export interface Database {
 export default interface Entity {
     name: string,
     content: string[],
-    postgres?: Database
+    postgres?: Database,
+    baseSkip?: boolean
 }

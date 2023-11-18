@@ -10,26 +10,58 @@ mustache: Para carregar e interpolar os arquivos template
 ## Pré-requisitos
 Certifique-se de ter o Node.js instalado para executar a CLI.
 
-## Instalação
-Clone o repositório para o seu ambiente local e execute o seguinte comando para instalar as dependências:
+## Módulo de Instalação
+Instalação Global
 
+Para facilitar o uso do Node Command Line Generator (nc), você pode instalá-lo globalmente e configurar as variáveis de ambiente. Siga os passos abaixo:
+
+1. Clone o repositório para o seu sistema:
+```git clone https://seu-repositorio-aqui.git```
+
+2. Acesse o diretório do projeto:
+```cd seu-projeto```
+
+3. Instale as dependências:
+```npm install```
+
+4. Execute o script de instalação para configurar o comando global (nc) e adicionar ao PATH:
+```npm run install-global```
+
+#### Uso
+Agora, você pode usar o comando nc globalmente para gerar entidades e comandos facilmente. Aqui estão alguns exemplos:
 ```
-npm install
+# Criar uma entidade chamada "User" com os campos "name:string" e "age:int"
+nc g e User name:string age:int"
 ```
+```
+# Criar um comando chamado "Generate" com campos opcionais e tipo de gerenciamento
+nc g command Generate [fields...] --type <typeFields> --id
+```
+
+Alternativa Simplificada
+Se preferir não instalar globalmente, você pode usar o script localmente com:
+```node dist/index.js g e User name:string age:int```
+
+Para uma configuração mais simplificada e para evitar a necessidade de especificar o caminho completo para o script, você pode adicionar o diretório ao PATH do seu sistema. Adicione a seguinte linha ao seu arquivo de configuração do perfil do sistema (como o .bashrc, .bash_profile, .zshrc, etc.):
+```export PATH=$PATH:/caminho/para/o/diretorio/do/script```
+
+Após salvar as alterações no arquivo de configuração, recarregue o perfil do terminal ou reinicie o terminal para que as alterações entrem em vigor.
+
+Agora, você pode usar o comando nc de qualquer diretório no terminal. Lembre-se de ajustar "/caminho/para/o/diretorio/do/Bin" para o caminho real do diretório contendo o bat na pasta Bin
 
 ## Uso
 A CLI oferece os seguintes comandos:
 
-### `nc help`
+- `nc help`
 Exibe informações de ajuda sobre o uso da CLI.
-
-### `nc g` ou `nc g help`
+<br />
+- `nc g` ou `nc g help`
 Exibe informações de ajuda sobre os comandos de geração.
-
-### `nc new <nome do projeto>`
+<br />
+- `nc new <nome do projeto>`
 Cria um novo projeto C# estruturado seguindo a arquitetura em camadas.
-
-### `nc g entity` ou `nc g e`
+<br />
+- `nc g entity` ou `nc g e`
 ```nc g entity <nameEntity> [fields...]```
 
 Este comando gera uma entidade com o nome especificado e os campos fornecidos. Os campos devem ser fornecidos no formato name:type.
@@ -38,6 +70,7 @@ Este comando gera uma entidade com o nome especificado e os campos fornecidos. O
 --postgres <postgreSQLFields>: Especifica campos adicionais para serem usados em bases de dados PostgreSQL. Os campos devem ser fornecidos no formato table:schema.
 
 #### Exemplos de Uso
+
 ```
 # Criar uma entidade chamada "User" com os campos "name:string" e "age:int"
 nc g e User name:string age:int
@@ -47,19 +80,40 @@ nc g e User name:string age:int
 # Criar uma entidade chamada "Product" com os campos "name:string" e "price:decimal" e campos PostgreSQL adicionais
 nc g e Product name:string price:decimal --postgres products:public
 ```
+<br />
+- `nc g command` ou `nc g f`
+```nc g f command <nameCommand> [fields...] --type <typeFields> --id```
 
-### `nc g command` ou `nc g f`
+Este comando está atualmente em manutenção e pode não funcionar corretamente.
+
+Este comando tem o objetivo de gerar um comando com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
+
+Opções
+--type <typeFields>: Especifica o tipo de gerenciamento que o comando terá.
+
+--id: Indica se o comando terá um identificador.
+
+#### Exemplos de Uso
+
+```
+# Criar um comando chamado "Generate" com campos opcionais e tipo de gerenciamento
+nc g command Generate [fields...] --type <typeFields> --id
+```
+
+```
+# Atalho para criar um comando usando a opção "f"
+nc g f Generate [fields...] --type <typeFields> --id
+```
+<br />
+- `nc g repository` ou `nc g r`
 Commando ainda em manutenção!!!
-
-### `nc g repository` ou `nc g r`
+<br />
+- `nc g handler` ou `nc g h`
 Commando ainda em manutenção!!!
-
-### `nc g handler` ou `nc g h`
+<br />
+- `nc g controler` ou `nc g c`
 Commando ainda em manutenção!!!
-
-### `nc g controler` ou `nc g c`
-Commando ainda em manutenção!!!
-
+<br />
 ### Notas
 Este comando está atualmente em manutenção, e novos recursos e opções serão adicionados em versões futuras. Fique atento para atualizações.
 

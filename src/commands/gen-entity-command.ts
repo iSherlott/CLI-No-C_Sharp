@@ -9,6 +9,7 @@ export function setupEntityCommand(parentCommand: Command) {
         .alias('e')
         .description('Generate an entity')
         .option('--postgres <postgreSQLFields>', 'Specify PostgreSQL fields for the entity')
+        .option('--baseSkip', 'This command ignore Base Entity')
         .action((nameEntity, fields, options) => {
             let postgres: Database | undefined;
 
@@ -20,6 +21,7 @@ export function setupEntityCommand(parentCommand: Command) {
             genEntity({
                 name: StringUtils.capitalizeFirstLetter(nameEntity),
                 postgres: postgres,
+                baseSkip: options.baseSkip === undefined ? false : true,
                 content: fields
             })
         });

@@ -19,24 +19,28 @@ export function genEntity(data: Entity) {
         const entity = new StructureEntity(data["content"]);
 
         const renderedTemplate = Mustache.render(template["content"], {
-            name: data["name"],
+            name: data["name"] + "Entity",
             database: data["postgres"] ? `[Table("${data["postgres"]["table"]}", Schema = "${data["postgres"]["schema"]}")]` : null,
             structureConstructor: entity.structureConstructor(),
             structureEntityThis: "\n" + entity.structureEntityThis(),
-            structureEntityPublic: "\n" + entity.structureEntityPublic()
+            structureEntityPublic: "\n" + entity.structureEntityPublic(),
+            baseSkip: !data["baseSkip"]
         });
 
         const currentDirectory = process.cwd();
-        const fileName = data["name"] + ".cs"
+        const fileName = data["name"] + "Entity.cs"
         const projectPath = path.join(currentDirectory, "Domain", "Entities", fileName);
 
         try {
+            const fileExist = fs.existsSync(projectPath);
             fs.writeFileSync(projectPath, renderedTemplate);
+
+            if (fileExist) console.log(`Entity '${data["name"]}' Atualizado com sucesso.`);
+            else console.log(`Entity '${data["name"]}' Criada com sucesso.`);
         } catch (error: any) {
             console.error('Invalid Local \n', error.message);
         }
 
-        console.log(`Entity '${data["name"]}' Criada com sucesso.`);
     } catch (error) {
         console.error('Erro ao gerar a entidade:', error);
     }

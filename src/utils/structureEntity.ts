@@ -2,15 +2,14 @@ export class StructureEntity {
     private entity: Record<string, string> = {}
 
     constructor(fields: string[]) {
-
         fields.forEach((field) => {
             const [fieldName, fieldType] = field.split(':');
             const trimmedFieldName = fieldName.trim();
-            const trimmedFieldType = fieldType.toLowerCase().trim();
+            const trimmedFieldType = fieldType ? fieldType.trim() : 'string';
 
-            this.isCSharpPrimitiveType(trimmedFieldType)
+            this.isCSharpPrimitiveType(trimmedFieldType);
 
-            this.entity[trimmedFieldName] = trimmedFieldType
+            this.entity[trimmedFieldName] = trimmedFieldType;
         });
     }
 
@@ -45,10 +44,10 @@ export class StructureEntity {
     }
 
     public isCSharpPrimitiveType(type: string): void {
-        const csharpPrimitiveTypes = ['guid', 'string', 'int', 'double', 'bool', 'float', 'char', 'decimal', 'long', 'short', 'byte'];
+        const csharpPrimitiveTypes = ['guid', 'string', 'int', 'double', 'bool', 'float', 'char', 'decimal', 'long', 'short', 'byte', 'datetime'];
 
-        if (!csharpPrimitiveTypes.includes(type)) {
-            throw new Error(`Invalid type: ${type}`);
+        if (!csharpPrimitiveTypes.includes(type.replace('?', ''))) {
+            throw new Error(`Tipo inválido: ${type}`);
         }
     }
 }
