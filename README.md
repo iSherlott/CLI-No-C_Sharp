@@ -52,16 +52,20 @@ Agora, você pode usar o comando nc de qualquer diretório no terminal. Lembre-s
 ## Uso
 A CLI oferece os seguintes comandos:
 
-- `nc help`
+- nc help:
+
 Exibe informações de ajuda sobre o uso da CLI.
 <br />
-- `nc g` ou `nc g help`
+- nc g ou nc g help:
+
 Exibe informações de ajuda sobre os comandos de geração.
 <br />
-- `nc new <nome do projeto>`
+- nc new <nome do projeto>
+
 Cria um novo projeto C# estruturado seguindo a arquitetura em camadas.
 <br />
-- `nc g entity` ou `nc g e`
+- nc g entity ou nc g e:
+
 ```nc g entity <nameEntity> [fields...]```
 
 Este comando gera uma entidade com o nome especificado e os campos fornecidos. Os campos devem ser fornecidos no formato name:type.
@@ -81,7 +85,8 @@ nc g e User name:string age:int
 nc g e Product name:string price:decimal --postgres products:public
 ```
 <br />
-- `nc g command` ou `nc g f`
+- nc g command ou nc g f:
+
 ```nc g f command <nameCommand> [fields...] --type <typeFields> --id```
 
 Este comando está atualmente em manutenção e pode não funcionar corretamente.
@@ -106,12 +111,15 @@ nc g f Generate [fields...] --type <typeFields> --id
 ```
 <br />
 - `nc g repository` ou `nc g r`
+
 Commando ainda em manutenção!!!
 <br />
 - `nc g handler` ou `nc g h`
+
 Commando ainda em manutenção!!!
 <br />
 - `nc g controler` ou `nc g c`
+
 Commando ainda em manutenção!!!
 <br />
 ### Notas
