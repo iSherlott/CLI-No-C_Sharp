@@ -1,13 +1,16 @@
 import { Command } from 'commander';
+import { genHandler } from '../services/genHandler';
+import { StringUtils } from '../utils/capitalizeFirstLetter';
 
 export function setupHandlerCommand(parentCommand: Command) {
-    parentCommand.command('handler <nameHandler>')
+    parentCommand.command('handler <nameHandler> [fields...]')
         .alias('h')
         .description('Generate an handler')
-        .action((nameRepository) => {
-            console.log(`Generate handler ${nameRepository}`);
-            console.log('Handler:', nameRepository);
-            console.log("Handler");
-            // Adicione aqui a lógica para gerar a entidade
+        .option('--repository', 'This command create handler in repository target')
+        .action((nameHandler, fields, options) => {
+            genHandler({
+                name: StringUtils.capitalizeFirstLetter(nameHandler),
+                content: fields
+            })
         });
 }

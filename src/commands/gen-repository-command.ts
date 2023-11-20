@@ -1,13 +1,15 @@
 import { Command } from 'commander';
+import { genRepository } from '../services/genRepository';
+import { StringUtils } from '../utils/capitalizeFirstLetter';
 
 export function setupRepositoryCommand(parentCommand: Command) {
-    parentCommand.command('repository <nameRepository>')
+    parentCommand.command('repository <nameRepository> [fields...]')
         .alias('r')
         .description('Generate an repository')
-        .action((nameRepository) => {
-            console.log(`Generate repository ${nameRepository}`);
-            console.log('Repository:', nameRepository);
-            console.log("Repository");
-            // Adicione aqui a lógica para gerar a entidade
+        .action((nameRepository, fields, options) => {
+            genRepository({
+                name: StringUtils.capitalizeFirstLetter(nameRepository),
+                content: fields
+            });
         });
 }

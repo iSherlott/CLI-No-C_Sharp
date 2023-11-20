@@ -1,4 +1,4 @@
-export class StructureEntity {
+export class Structure {
     private entity: Record<string, string> = {}
 
     constructor(fields: string[]) {

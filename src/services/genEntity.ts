@@ -8,7 +8,7 @@ import { readFile } from "../utils/readFile";
 
 import fs from 'fs';
 
-import { StructureEntity } from "../utils/structureEntity";
+import { Structure } from "../utils/structure";
 
 export function genEntity(data: Entity) {
 
@@ -16,7 +16,7 @@ export function genEntity(data: Entity) {
         const rootFolderPath: string = path.join(__dirname, '../../template/entity/Entity.cs');
         const template = readFile(rootFolderPath);
 
-        const entity = new StructureEntity(data["content"]);
+        const entity = new Structure(data["content"]);
 
         const renderedTemplate = Mustache.render(template["content"], {
             name: data["name"] + "Entity",

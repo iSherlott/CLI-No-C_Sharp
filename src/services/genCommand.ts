@@ -7,7 +7,7 @@ import fs from 'fs';
 
 import { readFile } from "../utils/readFile";
 
-import { StructureEntity } from "../utils/structureEntity";
+import { Structure } from "../utils/structure";
 
 
 export function genCommand(data: Command) {
@@ -16,7 +16,7 @@ export function genCommand(data: Command) {
         const rootFolderPath: string = path.join(__dirname, '../../template/command/Command.cs');
         const template = readFile(rootFolderPath);
 
-        const entity = new StructureEntity(data["content"]);
+        const entity = new Structure(data["content"]);
 
         const renderedTemplate = Mustache.render(template["content"], {
             name: data["type"] + data["name"] + "Command",
@@ -27,7 +27,7 @@ export function genCommand(data: Command) {
         })
 
         const currentDirectory = process.cwd();
-        const fileName = data["type"] + data["name"] + "Entity.cs"
+        const fileName = data["type"] + data["name"] + "Command.cs"
         const encapsulation = data["name"] + "Commands"
         const pathCommand = path.join(currentDirectory, "Domain", "Commands")
 

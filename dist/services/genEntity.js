@@ -8,12 +8,12 @@ const mustache_1 = __importDefault(require("mustache"));
 const path_1 = __importDefault(require("path"));
 const readFile_1 = require("../utils/readFile");
 const fs_1 = __importDefault(require("fs"));
-const structureEntity_1 = require("../utils/structureEntity");
+const structure_1 = require("../utils/structure");
 function genEntity(data) {
     try {
         const rootFolderPath = path_1.default.join(__dirname, '../../template/entity/Entity.cs');
         const template = (0, readFile_1.readFile)(rootFolderPath);
-        const entity = new structureEntity_1.StructureEntity(data["content"]);
+        const entity = new structure_1.Structure(data["content"]);
         const renderedTemplate = mustache_1.default.render(template["content"], {
             name: data["name"] + "Entity",
             database: data["postgres"] ? `[Table("${data["postgres"]["table"]}", Schema = "${data["postgres"]["schema"]}")]` : null,

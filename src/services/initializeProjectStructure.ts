@@ -20,9 +20,12 @@ export function initializeProjectStructure(nomeProject: string) {
         'Domain/Handlers',
         'Domain/Handlers/Contracts',
         'Domain/Repositories',
+        'Domain/Repositories/Contracts',
         'Domain/Validation',
         'Infrastructure/Configuration',
         'Infrastructure/Data',
+        'Infrastructure/Repositories',
+        'Infrastructure/Repositories/Contracts',
         'Infrastructure/Data/Mappings',
         'IoC',
     ];

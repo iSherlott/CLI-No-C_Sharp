@@ -8,12 +8,12 @@ const mustache_1 = __importDefault(require("mustache"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const readFile_1 = require("../utils/readFile");
-const structureEntity_1 = require("../utils/structureEntity");
+const structure_1 = require("../utils/structure");
 function genCommand(data) {
     try {
         const rootFolderPath = path_1.default.join(__dirname, '../../template/command/Command.cs');
         const template = (0, readFile_1.readFile)(rootFolderPath);
-        const entity = new structureEntity_1.StructureEntity(data["content"]);
+        const entity = new structure_1.Structure(data["content"]);
         const renderedTemplate = mustache_1.default.render(template["content"], {
             name: data["type"] + data["name"] + "Command",
             id: data["id"],
@@ -22,7 +22,7 @@ function genCommand(data) {
             structureEntityPublic: "\n" + entity.structureEntityPublic()
         });
         const currentDirectory = process.cwd();
-        const fileName = data["type"] + data["name"] + "Entity.cs";
+        const fileName = data["type"] + data["name"] + "Command.cs";
         const encapsulation = data["name"] + "Commands";
         const pathCommand = path_1.default.join(currentDirectory, "Domain", "Commands");
         fs_1.default.mkdirSync(`${currentDirectory}/Domain/Commands/${encapsulation}`, { recursive: true });
