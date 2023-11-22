@@ -49,7 +49,7 @@ Após salvar as alterações no arquivo de configuração, recarregue o perfil d
 
 Agora, você pode usar o comando nc de qualquer diretório no terminal. Lembre-se de ajustar "/caminho/para/o/diretorio/do/Bin" para o caminho real do diretório contendo o bat na pasta Bin
 
-Estrutura do Projeto C#
+# Estrutura do Projeto C#
 O projeto gerado segue a seguinte estrutura:
 
 API:
