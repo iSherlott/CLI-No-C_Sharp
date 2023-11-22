@@ -1,4 +1,4 @@
-# CLI-Design_CSharp
+# [CLI] No Code - Design C#
 
 ## Descrição
 Este projeto é uma CLI (Command Line Interface) desenvolvida em TypeScript para criar e estruturar projetos C# seguindo uma arquitetura em camadas comum em aplicativos C#. A estrutura do projeto C# inclui camadas para API, Domínio e Infraestrutura, organizando claramente as responsabilidades para facilitar a manutenção e escalabilidade do código.
@@ -49,6 +49,37 @@ Após salvar as alterações no arquivo de configuração, recarregue o perfil d
 
 Agora, você pode usar o comando nc de qualquer diretório no terminal. Lembre-se de ajustar "/caminho/para/o/diretorio/do/Bin" para o caminho real do diretório contendo o bat na pasta Bin
 
+Estrutura do Projeto C#
+O projeto gerado segue a seguinte estrutura:
+
+API:
+
+- Configurations: Classes de configuração relacionadas à API.
+- Controllers: Controladores responsáveis por receber solicitações HTTP.
+- Properties: Arquivos relacionados às propriedades do projeto.
+
+
+Domain:
+
+- Commands: Definição de comandos que representam ações na aplicação.
+- Entities: Modelos de dados (entidades) representando objetos de domínio.
+- Handlers: Classes de manipulação que processam comandos ou eventos.
+- Repositories: Interfaces e implementações de repositórios para interação com o armazenamento de dados.
+- Validation: Classes de validação que garantem integridade dos dados e aplicam regras de negócios.
+
+
+Infraestrutura:
+
+- Configuration: Classes de configuração relacionadas a serviços de infraestrutura.
+- Data: Implementação do acesso ao banco de dados, mapeamento de entidades e operações de persistência.
+
+
+Ioc:
+
+- Program.cs: Ponto de entrada da aplicação.
+- appSettings.cs: Classes representando configurações da aplicação em formato de código.
+- appSettings.Development.json: Configurações específicas do ambiente de desenvolvimento.
+
 ## Uso
 A CLI oferece os seguintes comandos:
 
@@ -93,8 +124,6 @@ nc g e Product name:string price:decimal --postgres products:public
 
 ```nc g f command <nameCommand> [fields...] --type <typeFields> --id```
 
-Este comando está atualmente em manutenção e pode não funcionar corretamente.
-
 Este comando tem o objetivo de gerar um comando com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
 
 Opções
@@ -117,18 +146,91 @@ nc g f Generate [fields...] --type <typeFields> --id
 
 - `nc g repository` ou `nc g r`
 
-Commando ainda em manutenção!!!
+```
+nc g f repository <nameRepository> [fields...]
+```
+
+Este comando tem o objetivo de gerar um repositório com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
+
+#### Exemplos de Uso
+
+```
+# Criar um repositório chamado "ProductRepository" com campos opcionais
+nc g f repository ProductRepository [fields...]
+```
+
+```
+# Atalho para criar um repositório usando a opção "f"
+nc g f r ProductRepository [fields...]
+```
 <br />
 
 - `nc g handler` ou `nc g h`
 
-Commando ainda em manutenção!!!
+```
+nc g f handler <nameHandler> [fields...] --repository
+```
+
+Este comando tem o objetivo de gerar um manipulador com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
+
+Opções
+--repository: Este comando cria um manipulador no repositório de destino.
+
+#### Exemplos de Uso
+
+```
+# Criar um manipulador chamado "ProductHandler" com campos opcionais no repositório
+nc g f handler ProductHandler [fields...] --repository
+```
+
+```
+# Atalho para criar um manipulador usando a opção "f"
+nc g f h ProductHandler [fields...] --repository
+```
 <br />
 
 - `nc g controler` ou `nc g c`:
 
-Commando ainda em manutenção!!!
+```
+nc g f controller <nameController> [fields...]
+```
+
+Este comando tem o objetivo de gerar um controlador com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type.
+
+Exemplos de Uso
+
+```
+# Criar um controlador chamado "ProductController" com campos opcionais
+nc g f controller ProductController [fields...]
+```
+
+```
+# Atalho para criar um controlador usando a opção "f"
+nc g f c ProductController [fields...]
+```
 <br />
+
+- `nc s` ou `nc scaffold`
+
+```
+nc s <nameScaffold> [fields...] --postgres <postgreSQLFields> --baseSkip --id
+```
+
+Este comando cria automaticamente uma entidade, comandos, manipuladores, repositórios e controladores em um projeto. Ele suporta opções para especificar campos adicionais para bases de dados PostgreSQL, ignorar a entidade base, e incluir um identificador.
+
+Opções
+--postgres <postgreSQLFields>: Especifica campos adicionais para serem usados em bases de dados PostgreSQL. Os campos devem ser fornecidos no formato table:schema.
+
+--baseSkip: Este comando ignora a entidade base.
+
+--id: Gera o arquivo com a opção de identificador.
+
+#### Exemplo de Uso
+
+```
+# Criar automaticamente uma estrutura completa para um recurso chamado "Product"
+nc s Product name:string price:decimal --postgres products:public --id
+```
 
 ### Notas
 Este comando está atualmente em manutenção, e novos recursos e opções serão adicionados em versões futuras. Fique atento para atualizações.
