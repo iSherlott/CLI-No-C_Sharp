@@ -24,6 +24,8 @@ function initializeProjectStructure(nomeProject) {
         'Domain/Repositories',
         'Domain/Repositories/Contracts',
         'Domain/Validation',
+        'Domain/Enum',
+        'Domain/Dto',
         'Infrastructure/Configuration',
         'Infrastructure/Data',
         'Infrastructure/Repositories',

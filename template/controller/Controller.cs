@@ -8,24 +8,24 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DiscordController : ControllerBase
+    public class {{title}}Controller : ControllerBase
     {
-        private readonly IDiscordRepository _{{name.toLower()}}Repository;
-        public DiscordController(IDiscordRepository {{name.toLower()}}Repository)
+        private readonly I{{title}}Repository _{{name}}Repository;
+        public {{title}}Controller(I{{title}}Repository {{name}}Repository)
         {
-            _{{name.toLower()}}Repository = {{name.toLower()}}Repository;
+            _{{name}}Repository = {{name}}Repository;
         }
 
         [HttpGet()]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
-            var models = await _discordRepository.GetByIdAsync(id);
+            var models = await _{{name}}Repository.GetByIdAsync(id);
 
             return Ok(new CommandResult(models));
         }
 
         [HttpPost()]
-        public async Task<IActionResult> CreateDiscordAsync([FromBody] CreateDiscordCommand command, [FromServices] DiscordHandler handler)
+        public async Task<IActionResult> Create{{title}}Async([FromBody] Create{{title}}Command command, [FromServices] {{title}}Handler handler)
         {
             var handle = await handler.Handle(command);
 
@@ -33,7 +33,7 @@ namespace API.Controllers
         }
 
         [HttpPut()]
-        public async Task<IActionResult> UpdateDiscordAsync([FromBody] UpdateDiscordCommand command, [FromServices] DiscordHandler handler)
+        public async Task<IActionResult> Update{{title}}Async([FromBody] Update{{title}}Command command, [FromServices] {{title}}Handler handler)
         {
             var handle = await handler.Handle(command);
 
@@ -43,10 +43,10 @@ namespace API.Controllers
         [HttpDelete()]
         public async Task<IActionResult> DeleteByIdAsync(Guid id)
         {
-            var entity = await _discordRepository.GetByIdAsync(id);
-            if (entity == null) return NotFound("entity not found"); 
+            var entity = await _{{name}}Repository.GetByIdAsync(id);
+            if (entity == null) return NotFound("Entity not found"); 
             
-            _discordRepository.DeleteObject(entity);
+            _{{name}}Repository.DeleteObject(entity);
 
             return Ok();
         }

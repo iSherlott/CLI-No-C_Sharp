@@ -44,6 +44,6 @@ export function genRepository(data: Repository) {
             console.error('Invalid Local \n', error.message);
         }
     } catch (error) {
-        console.error('Erro ao gerar a entidade:', error);
+        console.error('Erro ao gerar a repository:', error);
     }
 }

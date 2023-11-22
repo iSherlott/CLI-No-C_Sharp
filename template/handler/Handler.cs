@@ -6,13 +6,13 @@ using System.Net;
 
 namespace Domain.Handlers
 {
-    public class {{name}}Handler : {{#command}}{{#isFirst}}{{else}}, {{/isFirst}}IHandler<{{commandName}}>{{/command}}
+    public class {{title}}Handler : {{#command}}{{#isFirst}}{{else}}, {{/isFirst}}IHandler<{{commandName}}>{{/command}}
     {
         {{#repository}}
-        public readonly I{{name}}Repository _{{name.toLower()}}Repository;
-        public {{name}}Handler(I{{name}}Repository {{name.toLower()}}Repository)
+        public readonly I{{title}}Repository _{{name}}Repository;
+        public {{title}}Handler(I{{title}}Repository {{name}}Repository)
         {
-            _{{name.toLower()}}Repository = {{name.toLower()}}Repository;
+            _{{name}}Repository = {{name}}Repository;
         }
         {{/repository}}
 

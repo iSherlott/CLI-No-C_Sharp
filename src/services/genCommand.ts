@@ -39,13 +39,13 @@ export function genCommand(data: Command) {
             const fileExist = fs.existsSync(projectPath);
             fs.writeFileSync(projectPath, renderedTemplate);
 
-            if (fileExist) console.log(`Command '${data["name"]}' Atualizado com sucesso.`);
-            else console.log(`Command '${data["name"]}' Criada com sucesso.`);
+            if (fileExist) console.log(`Command ${data["type"]} '${data["name"]}' Atualizado com sucesso.`);
+            else console.log(`Command ${data["type"]} '${data["name"]}' Criada com sucesso.`);
         } catch (error: any) {
             console.error('Invalid Local \n', error.message);
         }
     }
     catch (error) {
-        console.error('Erro ao gerar a entidade:', error);
+        console.error('Erro ao gerar a command:', error);
     }
 }

@@ -5,3 +5,4 @@ export { setupCommandCommand } from './gen-command-command';
 export { setupHandlerCommand } from './gen-handler-command';
 export { setupRepositoryCommand } from './gen-repository-command';
 export { setupControllerCommand } from './gen-controller-command';
+export { setupScaffoldCommand } from './scaffold-command'

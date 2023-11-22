@@ -9,7 +9,9 @@ export function setupHandlerCommand(parentCommand: Command) {
         .option('--repository', 'This command create handler in repository target')
         .action((nameHandler, fields, options) => {
             genHandler({
-                name: StringUtils.capitalizeFirstLetter(nameHandler),
+                title: StringUtils.capitalizeFirstLetter(nameHandler),
+                name: nameHandler,
+                repository: options.repository === undefined ? false : true,
                 content: fields
             })
         });

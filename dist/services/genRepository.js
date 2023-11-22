@@ -44,7 +44,7 @@ function genRepository(data) {
         }
     }
     catch (error) {
-        console.error('Erro ao gerar a entidade:', error);
+        console.error('Erro ao gerar a repository:', error);
     }
 }
 exports.genRepository = genRepository;

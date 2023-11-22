@@ -4,10 +4,10 @@ import { initializeProjectStructure } from '../services/initializeProjectStructu
 
 export function setupInitCommand(program: Command) {
     program
-        .command('new <nomeProject>')
+        .command('new <nameProject>')
         .description('Initialize a new project')
-        .action((nomeProject) => {
-            initializeProjectStructure(nomeProject);
+        .action((nameProject) => {
+            initializeProjectStructure(nameProject);
         });
 }
 

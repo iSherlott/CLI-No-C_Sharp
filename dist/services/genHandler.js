@@ -14,28 +14,28 @@ function genHandler(data) {
         const template = (0, readFile_1.readFile)(rootFolderPath);
         const currentDirectory = process.cwd();
         data["command"] = [];
-        const files = fs_1.default.readdirSync(path_1.default.join(currentDirectory, "Domain", "Commands", "DiscordCommands"));
+        const files = fs_1.default.readdirSync(path_1.default.join(currentDirectory, "Domain", "Commands", data["title"] + "Commands"));
         files.map((elem, index) => data["command"]?.push({
             commandName: elem.replace(".cs", ""),
             isFirst: !(index == 0)
         }));
         const renderedTemplate = mustache_1.default.render(template["content"], data);
-        const fileName = data["name"] + "Handler.cs";
+        const fileName = data["title"] + "Handler.cs";
         const projectPath = path_1.default.join(currentDirectory, "Domain", "Handlers", fileName);
         try {
             const fileExist = fs_1.default.existsSync(projectPath);
             fs_1.default.writeFileSync(projectPath, renderedTemplate);
             if (fileExist)
-                console.log(`Handler '${data["name"]}' Atualizado com sucesso.`);
+                console.log(`Handler '${data["title"]}' Atualizado com sucesso.`);
             else
-                console.log(`Handler '${data["name"]}' Criada com sucesso.`);
+                console.log(`Handler '${data["title"]}' Criada com sucesso.`);
         }
         catch (error) {
             console.error('Invalid Local \n', error.message);
         }
     }
     catch (error) {
-        console.error('Erro ao gerar a entidade:', error);
+        console.error('Erro ao gerar a handler:', error);
     }
 }
 exports.genHandler = genHandler;

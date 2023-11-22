@@ -14,5 +14,6 @@ function setupCommands(program) {
     (0, commands_1.setupHandlerCommand)(genCommand);
     (0, commands_1.setupHelpCommand)(program);
     (0, commands_1.setupInitCommand)(program);
+    (0, commands_1.setupScaffoldCommand)(program);
 }
 exports.setupCommands = setupCommands;
