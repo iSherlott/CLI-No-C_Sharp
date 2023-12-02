@@ -19,6 +19,7 @@ export function initializeProjectStructure(nomeProject: string) {
         'Domain/Commands/Contracts',
         'Domain/Entities',
         'Domain/Handlers',
+        'Domain/Helpers',
         'Domain/Handlers/Contracts',
         'Domain/Repositories',
         'Domain/Repositories/Contracts',
