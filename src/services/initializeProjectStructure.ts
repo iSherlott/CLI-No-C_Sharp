@@ -14,6 +14,7 @@ export function initializeProjectStructure(nomeProject: string) {
         'API/Configurations',
         'API/Controllers',
         'API/Properties',
+        'API/Middleware',
         'Domain/Commands',
         'Domain/Commands/Contracts',
         'Domain/Entities',
