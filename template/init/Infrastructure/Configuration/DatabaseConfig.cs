@@ -8,7 +8,9 @@ namespace Infrastructure.Configuration
     {
         public static IServiceCollection AddDatabaseConfiguration(this IServiceCollection services, string connectionString)
         {
-            services.AddDbContext<ApplicationDbContext>(b => b.UseNpgsql(connectionString));
+            services
+                .AddDbContext<ApplicationDbContext>(b => b.UseSqlServer(connectionString));
+
 
             return services;
         }

@@ -18,7 +18,6 @@ namespace IoC
             // Handler
 
             // Services
-            services.AddHttpClient();
 
             // Helper
             services.AddScoped<IMapper, Mapper>();
