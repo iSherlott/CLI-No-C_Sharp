@@ -36,7 +36,7 @@ namespace Domain.Helpers
                 .Where(property =>
                 {
                     var value = property.GetValue(source);
-                    return value != null && property.Name != "Errors" && property.Name != "id" && property.Name != "isValid";
+                    return value != null && property.Name != "Errors" && property.Name != "Id" && property.Name != "isValid";
                 })
                 .Select(property => property.Name)
                 .ToArray();

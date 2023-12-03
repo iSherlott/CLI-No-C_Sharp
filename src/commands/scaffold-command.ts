@@ -8,6 +8,7 @@ import { genCommand } from '../services/genCommand';
 import { genHandler } from '../services/genHandler';
 import { genRepository } from '../services/genRepository';
 import { genController } from '../services/genController';
+import { genCommandInjectorBootStrapper } from '../services/genCommandInjectorBootStrapper';
 
 
 export function setupScaffoldCommand(program: Command) {
@@ -36,14 +37,14 @@ export function setupScaffoldCommand(program: Command) {
             genCommand({
                 name: StringUtils.capitalizeFirstLetter(nameScaffold),
                 type: "Create",
-                id: options.id,
+                id: false,
                 content: fields
             });
 
             genCommand({
                 name: StringUtils.capitalizeFirstLetter(nameScaffold),
                 type: "Update",
-                id: options.id,
+                id: true,
                 content: fields
             });
 
@@ -63,6 +64,11 @@ export function setupScaffoldCommand(program: Command) {
                 title: StringUtils.capitalizeFirstLetter(nameScaffold),
                 name: nameScaffold,
                 content: fields
+            });
+
+            genCommandInjectorBootStrapper({
+                title: StringUtils.capitalizeFirstLetter(nameScaffold),
+                name: nameScaffold
             });
         });
 }

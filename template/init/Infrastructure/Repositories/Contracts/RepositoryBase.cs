@@ -8,7 +8,7 @@ namespace Infrastructure.Repositories.Contrats
     public class RepositoryBase<T> : IRepositoryBase<T>, IDisposable where T : class
     {
         protected readonly ApplicationDbContext _context;
-        public bool _SaveChanges = true;
+        protected bool _SaveChanges = true;
         public RepositoryBase(ApplicationDbContext context, bool saveChanges = true)
         {
             _context = context;

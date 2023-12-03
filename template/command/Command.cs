@@ -8,14 +8,14 @@ namespace Domain.Commands
     {
         public {{name}}({{#id}}Guid id, {{/id}}{{structureConstructor}})
         {
-            {{#id}}this.id = id;{{/id}}{{& structureEntityThis}}
+            {{#id}}this.Id = id;{{/id}}{{& structureEntityThis}}
         }{{#id}}
 
-        public Guid id { get; set; }{{/id}}{{& structureEntityPublic}}
+        public Guid Id { get; set; }{{/id}}{{& structureEntityPublic}}
 
         public bool IsCommandValid()
         {
-            {{#id}}ValidateGuidNotEmpty(id, "Id");
+            {{#id}}ValidateGuidNotEmpty(Id, "Id");
             
             {{/id}}return this.isValid;
         }

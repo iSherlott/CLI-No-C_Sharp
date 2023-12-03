@@ -7,6 +7,7 @@ const genCommand_1 = require("../services/genCommand");
 const genHandler_1 = require("../services/genHandler");
 const genRepository_1 = require("../services/genRepository");
 const genController_1 = require("../services/genController");
+const genCommandInjectorBootStrapper_1 = require("../services/genCommandInjectorBootStrapper");
 function setupScaffoldCommand(program) {
     program
         .command('scaffold <nameScaffold> [fields...]')
@@ -30,13 +31,13 @@ function setupScaffoldCommand(program) {
         (0, genCommand_1.genCommand)({
             name: capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nameScaffold),
             type: "Create",
-            id: options.id,
+            id: false,
             content: fields
         });
         (0, genCommand_1.genCommand)({
             name: capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nameScaffold),
             type: "Update",
-            id: options.id,
+            id: true,
             content: fields
         });
         (0, genHandler_1.genHandler)({
@@ -53,6 +54,10 @@ function setupScaffoldCommand(program) {
             title: capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nameScaffold),
             name: nameScaffold,
             content: fields
+        });
+        (0, genCommandInjectorBootStrapper_1.genCommandInjectorBootStrapper)({
+            title: capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nameScaffold),
+            name: nameScaffold
         });
     });
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace API.Middleware;
@@ -29,9 +30,16 @@ public class ErrorHandlingMiddleware
     private static Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         context.Response.ContentType = "application/json";
-        context.Response.StatusCode = 500;
+        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-        var result = JsonConvert.SerializeObject(new { ErrorMessage = "Ocorreu um erro interno. Entre em contato com o suporte." });
+        var result = JsonConvert.SerializeObject(new
+        {
+            data = "",
+            message = "Ocorreu um erro interno. Entre em contato com o suporte.",
+            status = (int)HttpStatusCode.InternalServerError
+        });
+
         return context.Response.WriteAsync(result);
     }
+
 }

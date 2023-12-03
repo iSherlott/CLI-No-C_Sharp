@@ -4,17 +4,17 @@ namespace Domain.Entities
 {
     public class BaseEntity : Validatable
     {
-        public Guid id { get; set; }
-        public DateTimeOffset created { get; private set; }
-        public DateTimeOffset? update { get; private set; }
+        public Guid ID { get; set; }
+        public DateTimeOffset Created { get; private set; }
+        public DateTimeOffset? Update { get; private set; }
         public BaseEntity()
         {
-            created = DateTime.UtcNow;
-            update = null; 
+            Created = DateTime.UtcNow;
+            Update = null; 
         }
 
-        public void setCreated(DateTimeOffset created) { this.created = created; }
-        public void setUpdate(DateTimeOffset update) {  this.update = update; }
+        public void setCreated(DateTimeOffset Created) { this.Created = Created; }
+        public void setUpdate(DateTimeOffset Update) {  this.Update = Update; }
 
 
     }

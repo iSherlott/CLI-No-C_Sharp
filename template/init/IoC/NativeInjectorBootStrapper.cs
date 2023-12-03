@@ -13,13 +13,13 @@ namespace IoC
         public static void RegisterServices(IServiceCollection services)
         {
 
-            // Repository
+            /* repositories */
 
-            // Handler
+            /* handlers */
 
-            // Services
+            /* Services */
 
-            // Helper
+            /* Helper */
             services.AddScoped<IMapper, Mapper>();
 
         }

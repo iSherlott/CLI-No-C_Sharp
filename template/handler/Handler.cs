@@ -32,7 +32,7 @@ namespace Domain.Handlers
 
             {{#isUpdateCommand}}
 
-            {{title}}Entity entity = await _{{name}}Repository.GetByIdAsync(command.id);
+            {{title}}Entity entity = await _{{name}}Repository.GetByIdAsync(command.Id);
 
             if (entity == null) return new CommandResult("Entity not found", HttpStatusCode.NotFound);
 

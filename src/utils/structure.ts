@@ -9,8 +9,19 @@ export class Structure {
 
             this.isCSharpPrimitiveType(trimmedFieldType);
 
-            this.entity[trimmedFieldName] = trimmedFieldType;
+            this.entity[trimmedFieldName] = this.detectSpecialTypes(trimmedFieldType);
         });
+    }
+
+    public detectSpecialTypes(type: string): string {
+        switch (type) {
+            case "guid":
+                return "Guid"
+            case "datetime":
+                return "DateTime"
+            default:
+                return type
+        }
     }
 
     public structureConstructor(): string {

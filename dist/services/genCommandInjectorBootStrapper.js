@@ -27,14 +27,16 @@ function genCommandInjectorBootStrapper(data) {
                 foundArea = true;
                 const indentation = line.match(/^\s*/)?.[0] || '';
                 for (const newInfo of newData.repositories) {
-                    newContent.push(`${indentation}${newInfo}`);
+                    if (!(lines.toString().includes(newInfo)))
+                        newContent.push(`${indentation}${newInfo}`);
                 }
             }
             if (line.includes("/* handlers */")) {
                 foundArea = true;
                 const indentation = line.match(/^\s*/)?.[0] || '';
                 for (const newInfo of newData.handlers) {
-                    newContent.push(`${indentation}${newInfo}`);
+                    if (!(lines.toString().includes(newInfo)))
+                        newContent.push(`${indentation}${newInfo}`);
                 }
             }
         }

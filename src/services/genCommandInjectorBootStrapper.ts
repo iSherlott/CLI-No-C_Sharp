@@ -36,7 +36,7 @@ export function genCommandInjectorBootStrapper(data: any) {
                 const indentation = line.match(/^\s*/)?.[0] || '';
 
                 for (const newInfo of newData.repositories) {
-                    newContent.push(`${indentation}${newInfo}`);
+                    if (!(lines.toString().includes(newInfo))) newContent.push(`${indentation}${newInfo}`);
                 }
             }
 
@@ -46,7 +46,7 @@ export function genCommandInjectorBootStrapper(data: any) {
                 const indentation = line.match(/^\s*/)?.[0] || '';
 
                 for (const newInfo of newData.handlers) {
-                    newContent.push(`${indentation}${newInfo}`);
+                    if (!(lines.toString().includes(newInfo))) newContent.push(`${indentation}${newInfo}`);
                 }
             }
         }

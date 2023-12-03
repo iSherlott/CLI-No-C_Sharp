@@ -3,7 +3,7 @@ using System;
 
 namespace API.Controllers
 {
-    [Route("api/")]
+    [Route("api")]
     [ApiController]
     public class HomeController : ControllerBase
     {
@@ -14,7 +14,7 @@ namespace API.Controllers
             _startupTime = DateTime.Now;
         }
 
-        [HttpGet()]
+        [HttpGet]
         public IActionResult IsOnline()
         {
             var response = new

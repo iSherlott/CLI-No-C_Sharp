@@ -9,8 +9,18 @@ class Structure {
             const trimmedFieldName = fieldName.trim();
             const trimmedFieldType = fieldType ? fieldType.trim() : 'string';
             this.isCSharpPrimitiveType(trimmedFieldType);
-            this.entity[trimmedFieldName] = trimmedFieldType;
+            this.entity[trimmedFieldName] = this.detectSpecialTypes(trimmedFieldType);
         });
+    }
+    detectSpecialTypes(type) {
+        switch (type) {
+            case "guid":
+                return "Guid";
+            case "datetime":
+                return "DateTime";
+            default:
+                return type;
+        }
     }
     structureConstructor() {
         let result = [];

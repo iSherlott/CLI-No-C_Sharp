@@ -19,68 +19,39 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
-            try
-            {
-                var models = await _{{name}}Repository.GetByIdAsync(id);
-                if (models == null) return NotFound("Entity not found"); 
+            var models = await _{{name}}Repository.GetByIdAsync(id);
+            if (models == null) return NotFound("Entity not found"); 
 
-                return Ok(new CommandResult(models));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error getting company profile: {ex.Message}");
-            }
-            
+            return Ok(new CommandResult(models));
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> Create{{title}}Async([FromBody] Create{{title}}Command command, [FromServices] {{title}}Handler handler)
         {
-            try
-            {
-                var handle = await handler.Handle(command);
+            var handle = await handler.Handle(command);
 
-                return Ok(handle);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error getting company profile: {ex.Message}");
-            }
+            return Ok(handle);
         }
 
-        [HttpPut()]
+        [HttpPut]
         public async Task<IActionResult> Update{{title}}Async([FromBody] Update{{title}}Command command, [FromServices] {{title}}Handler handler)
         {
-            try
-            {
-                var handle = await handler.Handle(command);
+            var handle = await handler.Handle(command);
 
-                return Ok(handle);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error getting company profile: {ex.Message}");
-            }
+            return Ok(handle);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteByIdAsync(Guid id)
         {
-            try
-            {
-                var entity = await _{{name}}Repository.GetByIdAsync(id);
-                if (entity == null) return NotFound("Entity not found"); 
+            var entity = await _{{name}}Repository.GetByIdAsync(id);
+            if (entity == null) return NotFound("Entity not found"); 
                 
-                _{{name}}Repository.DeleteObject(entity);
+            _{{name}}Repository.DeleteObject(entity);
 
-                var result = new { data = "Removed success!!!" };
+            var result = new { data = "Removed success!!!" };
 
-                return Ok(new CommandResult(result));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error getting company profile: {ex.Message}");
-            }
+            return Ok(new CommandResult(result));
         }
     }
 }
