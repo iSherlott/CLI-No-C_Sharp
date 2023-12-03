@@ -35,7 +35,7 @@ public class ErrorHandlingMiddleware
         var result = JsonConvert.SerializeObject(new
         {
             data = "",
-            message = "Ocorreu um erro interno. Entre em contato com o suporte.",
+            message = exception.Message,
             status = (int)HttpStatusCode.InternalServerError
         });
 
