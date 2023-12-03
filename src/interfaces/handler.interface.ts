@@ -1,6 +1,7 @@
 export interface Command {
     commandName: string;
-    isFirst?: boolean
+    isFirst?: boolean;
+    isUpdateCommand?: boolean;
 }
 
 export default interface Handler {
@@ -8,5 +9,5 @@ export default interface Handler {
     name: string,
     repository: boolean;
     command?: Command[];
-    content: string[]
+    content: string[];
 }

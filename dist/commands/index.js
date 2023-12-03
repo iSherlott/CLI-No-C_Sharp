@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupScaffoldCommand = exports.setupControllerCommand = exports.setupRepositoryCommand = exports.setupHandlerCommand = exports.setupCommandCommand = exports.setupEntityCommand = exports.setupInitCommand = exports.setupHelpCommand = void 0;
+exports.setupInjectorBootStrapper = exports.setupScaffoldCommand = exports.setupControllerCommand = exports.setupRepositoryCommand = exports.setupHandlerCommand = exports.setupCommandCommand = exports.setupEntityCommand = exports.setupInitCommand = exports.setupHelpCommand = void 0;
 var help_command_1 = require("./help-command");
 Object.defineProperty(exports, "setupHelpCommand", { enumerable: true, get: function () { return help_command_1.setupHelpCommand; } });
 var init_command_1 = require("./init-command");
@@ -17,3 +17,5 @@ var gen_controller_command_1 = require("./gen-controller-command");
 Object.defineProperty(exports, "setupControllerCommand", { enumerable: true, get: function () { return gen_controller_command_1.setupControllerCommand; } });
 var scaffold_command_1 = require("./scaffold-command");
 Object.defineProperty(exports, "setupScaffoldCommand", { enumerable: true, get: function () { return scaffold_command_1.setupScaffoldCommand; } });
+var gen_command_injectorBootStrapper_1 = require("./gen-command-injectorBootStrapper");
+Object.defineProperty(exports, "setupInjectorBootStrapper", { enumerable: true, get: function () { return gen_command_injectorBootStrapper_1.setupInjectorBootStrapper; } });

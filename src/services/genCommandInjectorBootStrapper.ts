@@ -1,0 +1,72 @@
+import Mustache from "mustache";
+
+import path from "path";
+import Controller from "../interfaces/controller.interface";
+
+import { readFile } from "../utils/readFile";
+
+import fs from 'fs';
+
+
+export function genCommandInjectorBootStrapper(data: any) {
+    try {
+        const currentDirectory = process.cwd();
+        const filePath: string = path.join(currentDirectory, "IoC", "NativeInjectorBootStrapper.cs");
+
+        const newData = {
+            repositories: [
+                `services.AddScoped<I${data["title"]}Repository, ${data["title"]}Repository>();`
+            ],
+            handlers: [
+                `services.AddTransient<${data["title"]}Handler>();`
+            ]
+        };
+
+        const lines: string[] = fs.readFileSync(filePath, 'utf-8').split('\n');
+
+        const newContent: string[] = [];
+        let foundArea = false;
+
+        for (const line of lines) {
+            newContent.push(line);
+
+            if (line.includes("/* repositories */")) {
+                foundArea = true;
+
+                const indentation = line.match(/^\s*/)?.[0] || '';
+
+                for (const newInfo of newData.repositories) {
+                    newContent.push(`${indentation}${newInfo}`);
+                }
+            }
+
+            if (line.includes("/* handlers */")) {
+                foundArea = true;
+
+                const indentation = line.match(/^\s*/)?.[0] || '';
+
+                for (const newInfo of newData.handlers) {
+                    newContent.push(`${indentation}${newInfo}`);
+                }
+            }
+        }
+
+        if (!foundArea) {
+            newContent.push('\n/* repositories */');
+            for (const newInfo of newData.repositories) {
+                newContent.push(newInfo);
+            }
+
+            newContent.push('\n/* handlers */');
+            for (const newInfo of newData.handlers) {
+                newContent.push(newInfo);
+            }
+        }
+
+        fs.writeFileSync(filePath, newContent.join('\n'));
+
+        console.log('InjectorBootStrapper updated successfully!');
+    } catch (error) {
+        console.error('Error generating InjectorBootStrapper:', error);
+    }
+}

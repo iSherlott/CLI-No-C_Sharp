@@ -7,7 +7,8 @@ import {
     setupRepositoryCommand,
     setupControllerCommand,
     setupHandlerCommand,
-    setupScaffoldCommand
+    setupScaffoldCommand,
+    setupInjectorBootStrapper
 } from '../commands';
 
 export function setupCommands(program: Command) {
@@ -21,6 +22,7 @@ export function setupCommands(program: Command) {
     setupRepositoryCommand(genCommand);
     setupControllerCommand(genCommand);
     setupHandlerCommand(genCommand);
+    setupInjectorBootStrapper(genCommand);
 
     setupHelpCommand(program);
     setupInitCommand(program);

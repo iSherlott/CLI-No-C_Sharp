@@ -20,7 +20,8 @@ export function genHandler(data: Handler) {
         const files = fs.readdirSync(path.join(currentDirectory, "Domain", "Commands", data["title"] + "Commands"));
         files.map((elem: string, index: number) => data["command"]?.push({
             commandName: elem.replace(".cs", ""),
-            isFirst: !(index == 0)
+            isFirst: !(index == 0),
+            isUpdateCommand: elem.includes("Update")
         }))
 
         const renderedTemplate = Mustache.render(template["content"], data);

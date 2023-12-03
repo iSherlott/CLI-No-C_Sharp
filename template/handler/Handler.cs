@@ -30,6 +30,20 @@ namespace Domain.Handlers
                 return new CommandResult(command.Errors, HttpStatusCode.BadRequest);
             }
 
+            {{#isUpdateCommand}}
+
+            {{title}}Entity entity = await _{{name}}Repository.GetByIdAsync(command.id);
+
+            if (entity == null) return new CommandResult("Entity not found", HttpStatusCode.NotFound);
+
+            _mapper.Map(command, entity);
+
+            await _{{name}}Repository.UpdateAsync(entity);
+
+            var result = new { data = "Update success!!!" };
+            
+            {{/isUpdateCommand}}
+
             return new CommandResult();
         }
 

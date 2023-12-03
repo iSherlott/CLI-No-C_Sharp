@@ -17,7 +17,8 @@ function genHandler(data) {
         const files = fs_1.default.readdirSync(path_1.default.join(currentDirectory, "Domain", "Commands", data["title"] + "Commands"));
         files.map((elem, index) => data["command"]?.push({
             commandName: elem.replace(".cs", ""),
-            isFirst: !(index == 0)
+            isFirst: !(index == 0),
+            isUpdateCommand: elem.includes("Update")
         }));
         const renderedTemplate = mustache_1.default.render(template["content"], data);
         const fileName = data["title"] + "Handler.cs";
