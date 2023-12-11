@@ -25,6 +25,7 @@ export function initializeProjectStructure(nomeProject: string) {
         'Domain/Repositories/Contracts',
         'Domain/Validation',
         'Domain/Enum',
+        'Domain/Services',
         'Infrastructure/Configuration',
         'Infrastructure/Data',
         'Infrastructure/Repositories',

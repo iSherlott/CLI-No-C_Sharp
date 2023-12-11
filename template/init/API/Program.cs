@@ -33,6 +33,7 @@ app.UseCors(builder =>
            .AllowAnyHeader());
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseMiddleware<CancellationTokenMiddleware>();
 
 app.UseHttpsRedirection();
 
