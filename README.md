@@ -122,7 +122,7 @@ nc g e Product name:string price:decimal --postgres products:public
 
 - `nc g command` ou `nc g f`:
 
-```nc g f command <nameCommand> [fields...] --type <typeFields> --id```
+```nc g command <nameCommand> [fields...] --type <typeFields> --id```
 
 Este comando tem o objetivo de gerar um comando com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
 
@@ -147,7 +147,7 @@ nc g f Generate [fields...] --type <typeFields> --id
 - `nc g repository` ou `nc g r`
 
 ```
-nc g f repository <nameRepository> [fields...]
+nc g repository <nameRepository> [fields...]
 ```
 
 Este comando tem o objetivo de gerar um repositório com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
@@ -156,19 +156,19 @@ Este comando tem o objetivo de gerar um repositório com o nome especificado e c
 
 ```
 # Criar um repositório chamado "ProductRepository" com campos opcionais
-nc g f repository ProductRepository [fields...]
+nc g repository ProductRepository [fields...]
 ```
 
 ```
 # Atalho para criar um repositório usando a opção "f"
-nc g f r ProductRepository [fields...]
+nc g r ProductRepository [fields...]
 ```
 <br />
 
 - `nc g handler` ou `nc g h`
 
 ```
-nc g f handler <nameHandler> [fields...] --repository
+nc g handler <nameHandler> [fields...] --repository
 ```
 
 Este comando tem o objetivo de gerar um manipulador com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type. O comando também suporta opções adicionais:
@@ -180,19 +180,19 @@ Opções
 
 ```
 # Criar um manipulador chamado "ProductHandler" com campos opcionais no repositório
-nc g f handler ProductHandler [fields...] --repository
+nc g handler ProductHandler [fields...] --repository
 ```
 
 ```
 # Atalho para criar um manipulador usando a opção "f"
-nc g f h ProductHandler [fields...] --repository
+nc g h ProductHandler [fields...] --repository
 ```
 <br />
 
 - `nc g controler` ou `nc g c`:
 
 ```
-nc g f controller <nameController> [fields...]
+nc g controller <nameController> [fields...]
 ```
 
 Este comando tem o objetivo de gerar um controlador com o nome especificado e campos opcionais. Os campos devem ser fornecidos no formato name:type.
@@ -201,12 +201,12 @@ Exemplos de Uso
 
 ```
 # Criar um controlador chamado "ProductController" com campos opcionais
-nc g f controller ProductController [fields...]
+nc g controller ProductController [fields...]
 ```
 
 ```
 # Atalho para criar um controlador usando a opção "f"
-nc g f c ProductController [fields...]
+nc g c ProductController [fields...]
 ```
 <br />
 

@@ -10,7 +10,7 @@ import { readFile } from "../utils/readFile";
 
 export function genHandler(data: Handler) {
     try {
-        const rootFolderPath: string = path.join(__dirname, '../../template/handler/handler.cs');
+        const rootFolderPath: string = path.join(__dirname, '../../template/handler/Handler.cs');
         const template = readFile(rootFolderPath);
 
         const currentDirectory = process.cwd();

@@ -34,9 +34,8 @@ public class ErrorHandlingMiddleware
 
         var result = JsonConvert.SerializeObject(new
         {
-            data = "",
-            message = exception.Message,
-            status = (int)HttpStatusCode.InternalServerError
+            Errors = exception.Message,
+            StatusCode = (int)HttpStatusCode.InternalServerError
         });
 
         return context.Response.WriteAsync(result);
