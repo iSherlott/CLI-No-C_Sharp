@@ -14,9 +14,9 @@ namespace IoC
         public static void RegisterServices(IServiceCollection services)
         {
 
-            /* repositories */
+            /* Repositories */
 
-            /* handlers */
+            /* Handlers */
 
             /* Services */
 

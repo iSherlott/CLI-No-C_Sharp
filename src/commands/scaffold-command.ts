@@ -9,6 +9,7 @@ import { genHandler } from '../services/genHandler';
 import { genRepository } from '../services/genRepository';
 import { genController } from '../services/genController';
 import { genCommandInjectorBootStrapper } from '../services/genCommandInjectorBootStrapper';
+import { genCommandApplicationDbContext } from '../services/genCommandApplicationDbContext';
 
 
 export function setupScaffoldCommand(program: Command) {
@@ -67,6 +68,11 @@ export function setupScaffoldCommand(program: Command) {
             });
 
             genCommandInjectorBootStrapper({
+                title: StringUtils.capitalizeFirstLetter(nameScaffold),
+                name: nameScaffold
+            });
+
+            genCommandApplicationDbContext({
                 title: StringUtils.capitalizeFirstLetter(nameScaffold),
                 name: nameScaffold
             });

@@ -10,7 +10,7 @@ namespace Infrastructure.Data
         {
         }
 
-        {{dbSet}}
+        /* DbSet */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

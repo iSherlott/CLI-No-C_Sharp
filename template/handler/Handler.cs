@@ -40,11 +40,18 @@ namespace Domain.Handlers
 
             await _{{name}}Repository.UpdateAsync(entity);
 
-            var result = new { data = "Update success!!!" };
+            return new CommandResult(entity, HttpStatusCode.OK);
             
             {{/isUpdateCommand}}
+            {{^isUpdateCommand}}
 
-            return new CommandResult();
+            {{title}}Entity entity = new ();
+            _mapper.Map(command, entity);
+
+            await _{{name}}Repository.PostAsync(entity);
+
+            return new CommandResult(entity, HttpStatusCode.OK);
+            {{/isUpdateCommand}}
         }
 
         {{/command}}

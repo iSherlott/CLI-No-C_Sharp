@@ -58,6 +58,11 @@ API:
 - Controllers: Controladores responsáveis por receber solicitações HTTP.
 - Properties: Arquivos relacionados às propriedades do projeto.
 
+Application:
+
+- DTOs: Objetos de Transferência de Dados que representam as estruturas de dados utilizadas nas interações entre a camada de aplicação e a API.
+- Interfaces: Definições de interfaces para serviços que serão implementados na camada de serviços.
+- Services: Implementações de serviços que realizam as operações de negócios e interagem com a camada de domínio.
 
 Domain:
 
@@ -266,8 +271,3 @@ O projeto gerado seguirá a seguinte estrutura:
 ## Scripts
 npm run build: Compila o código TypeScript para JavaScript.
 npm start: Inicia a CLI.
-
-## Licença
-Este projeto é licenciado sob a Licença ISC. Consulte o arquivo LICENSE para obter detalhes.
-
-Observação: Certifique-se de ajustar as versões das dependências e outras informações conforme necessário no arquivo README.

@@ -11,12 +11,20 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class {{title}}Controller : ControllerBase
+    public class {{title}}Controller : BaseController
     {
         private readonly I{{title}}Repository _{{name}}Repository;
         public {{title}}Controller(I{{title}}Repository {{name}}Repository, DefaultDictionary defaultDictionary) : base(defaultDictionary)
         {
             _{{name}}Repository = {{name}}Repository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var models = await _{{name}}Repository.GetAllAsync();
+
+            return Ok(new CommandResult(models, HttpStatusCode.OK));
         }
 
         [HttpGet("{id}")]
