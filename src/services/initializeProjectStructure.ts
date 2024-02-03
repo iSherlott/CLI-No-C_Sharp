@@ -11,26 +11,35 @@ export function initializeProjectStructure(nomeProject: string) {
     const projectPath = path.join(currentDirectory, nomeProject);
 
     const foldersToCreate = [
+        'API/Properties',
         'API/Configurations',
         'API/Controllers',
-        'API/Properties',
+        'API/Controllers/Contract',
         'API/Middleware',
+
+        'Application/Dictionary',
+        'Application/DTOs',
+        'Application/DTOs/Request',
+        'Application/DTOs/Response',
+        'Application/Interfaces',
+        'Application/Services',
+
         'Domain/Commands',
         'Domain/Commands/Contracts',
         'Domain/Entities',
         'Domain/Handlers',
-        'Domain/Helpers',
         'Domain/Handlers/Contracts',
+        'Domain/Helpers',
         'Domain/Repositories',
         'Domain/Repositories/Contracts',
         'Domain/Validation',
-        'Domain/Enum',
-        'Domain/Services',
+
         'Infrastructure/Configuration',
         'Infrastructure/Data',
         'Infrastructure/Repositories',
         'Infrastructure/Repositories/Contracts',
         'Infrastructure/Data/Mappings',
+
         'IoC',
     ];
 

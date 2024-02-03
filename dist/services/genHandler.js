@@ -10,7 +10,7 @@ const fs_1 = __importDefault(require("fs"));
 const readFile_1 = require("../utils/readFile");
 function genHandler(data) {
     try {
-        const rootFolderPath = path_1.default.join(__dirname, '../../template/handler/handler.cs');
+        const rootFolderPath = path_1.default.join(__dirname, '../../template/handler/Handler.cs');
         const template = (0, readFile_1.readFile)(rootFolderPath);
         const currentDirectory = process.cwd();
         data["command"] = [];

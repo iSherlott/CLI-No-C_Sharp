@@ -1,7 +1,10 @@
+using System.Net;
 using Domain.Commands;
 using Domain.Entities;
 using Domain.Handlers;
 using Domain.Repositories;
+using Application.Dictionary;
+using API.Controllers.Contract;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -11,7 +14,7 @@ namespace API.Controllers
     public class {{title}}Controller : ControllerBase
     {
         private readonly I{{title}}Repository _{{name}}Repository;
-        public {{title}}Controller(I{{title}}Repository {{name}}Repository)
+        public {{title}}Controller(I{{title}}Repository {{name}}Repository, DefaultDictionary defaultDictionary) : base(defaultDictionary)
         {
             _{{name}}Repository = {{name}}Repository;
         }
@@ -20,9 +23,9 @@ namespace API.Controllers
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var models = await _{{name}}Repository.GetByIdAsync(id);
-            if (models == null) return NotFound("Entity not found"); 
+            if (models == null) return NotFound(_defaultDictionary.Response["NotFound"]); 
 
-            return Ok(new CommandResult(models));
+            return Ok(new CommandResult(models, HttpStatusCode.OK));
         }
 
         [HttpPost]
@@ -45,13 +48,13 @@ namespace API.Controllers
         public async Task<IActionResult> DeleteByIdAsync(Guid id)
         {
             var entity = await _{{name}}Repository.GetByIdAsync(id);
-            if (entity == null) return NotFound("Entity not found"); 
+            if (entity == null) return NotFound(_defaultDictionary.Response["NotFound"]); 
                 
             _{{name}}Repository.DeleteObject(entity);
 
             var result = new { data = "Removed success!!!" };
 
-            return Ok(new CommandResult(result));
+            return Ok(new CommandResult(result, HttpStatusCode.OK));
         }
     }
 }

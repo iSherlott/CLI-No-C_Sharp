@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
@@ -12,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoC", "IoC\IoC.csproj", "{DA39047A-8547-4CAA-A6FA-944E7755162F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoC", "IoC\IoC.csproj", "{DA39047A-8547-4CAA-A6FA-944E7755162F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{8795B076-1C58-448C-8EAD-CF5D79A46058}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BAC1D319-0FA4-4B58-BB97-0A2DE4DC4B05} = {BAC1D319-0FA4-4B58-BB97-0A2DE4DC4B05}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +40,10 @@ Global
 		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8795B076-1C58-448C-8EAD-CF5D79A46058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8795B076-1C58-448C-8EAD-CF5D79A46058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8795B076-1C58-448C-8EAD-CF5D79A46058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8795B076-1C58-448C-8EAD-CF5D79A46058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,4 +52,3 @@ Global
 		SolutionGuid = {C5FC4A92-136C-42BA-9AE0-88D6A1223F8A}
 	EndGlobalSection
 EndGlobal
-    

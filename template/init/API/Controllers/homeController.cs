@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Application.Dictionary;
+using API.Controllers.Contract;
+using System.Net;
 
 namespace API.Controllers
 {
     [Route("api")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class HomeController : BaseController
     {
         private readonly DateTime _startupTime;
 
-        public HomeController()
+        public HomeController(DefaultDictionary defaultDictionary) : base(defaultDictionary)
         {
             _startupTime = DateTime.Now;
         }
@@ -17,17 +19,16 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult IsOnline()
         {
-            var response = new
+            var responseData = new
             {
-                data = new
-                {
-                    startupTime = _startupTime
-                },
-                message = "Rota gerada automaticamente para a Home",
-                status = 200
+                startupTime = _startupTime
             };
 
-            return Ok(response);
+            return ApiResponse(
+                responseData, 
+                _defaultDictionary.Response["Success"], 
+                HttpStatusCode.OK
+                );
         }
     }
 }

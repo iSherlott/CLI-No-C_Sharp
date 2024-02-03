@@ -1,3 +1,4 @@
+using Application.Dictionary;
 using Domain.Handlers;
 using Domain.Helpers;
 using Domain.Repositories;
@@ -18,6 +19,9 @@ namespace IoC
             /* handlers */
 
             /* Services */
+
+            /* Dictionary */
+            services.AddSingleton<DefaultDictionary>();
 
             /* Helper */
             services.AddScoped<IMapper, Mapper>();
