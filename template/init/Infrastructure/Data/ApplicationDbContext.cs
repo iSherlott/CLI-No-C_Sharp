@@ -10,7 +10,8 @@ namespace Infrastructure.Data
         {
         }
 
-        /* DbSet */
+        #region DbSet
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

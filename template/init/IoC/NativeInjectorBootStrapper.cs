@@ -14,17 +14,22 @@ namespace IoC
         public static void RegisterServices(IServiceCollection services)
         {
 
-            /* Repositories */
+            #region Repositories
+            #endregion
 
-            /* Handlers */
+            #region Handlers
+            #endregion
 
-            /* Services */
+            #region Services
+            #endregion
 
-            /* Dictionary */
+            #region Dictionary
             services.AddSingleton<DefaultDictionary>();
+            #endregion
 
-            /* Helper */
+            #region Helper
             services.AddScoped<IMapper, Mapper>();
+            #endregion
 
         }
     }

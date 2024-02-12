@@ -58,7 +58,7 @@ export function initializeProjectStructure(nomeProject: string) {
 
             const file = Mustache.render(elem.content, data);
 
-            const fileName = elem.target == "/Template.sln" ? `/${StringUtils.capitalizeFirstLetter(nomeProject)}.sln` : elem.target;
+            const fileName = elem.fileName == "Template.sln" ? `/${StringUtils.capitalizeFirstLetter(nomeProject)}.sln` : elem.target.split("/template/init")[1];
             fs.writeFileSync(projectPath + fileName, file);
         })
 

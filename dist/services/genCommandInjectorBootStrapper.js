@@ -23,7 +23,7 @@ function genCommandInjectorBootStrapper(data) {
         let foundArea = false;
         for (const line of lines) {
             newContent.push(line);
-            if (line.includes("/* Repositories */")) {
+            if (line.includes("#region Repositories")) {
                 foundArea = true;
                 const indentation = line.match(/^\s*/)?.[0] || '';
                 for (const newInfo of newData.repositories) {
@@ -31,7 +31,7 @@ function genCommandInjectorBootStrapper(data) {
                         newContent.push(`${indentation}${newInfo}`);
                 }
             }
-            if (line.includes("/* Handlers */")) {
+            if (line.includes("#region Handlers")) {
                 foundArea = true;
                 const indentation = line.match(/^\s*/)?.[0] || '';
                 for (const newInfo of newData.handlers) {
@@ -41,11 +41,11 @@ function genCommandInjectorBootStrapper(data) {
             }
         }
         if (!foundArea) {
-            newContent.push('\n/* Repositories */');
+            newContent.push('\n#region Repositories');
             for (const newInfo of newData.repositories) {
                 newContent.push(newInfo);
             }
-            newContent.push('\n/* Handlers */');
+            newContent.push('\n#region Handlers');
             for (const newInfo of newData.handlers) {
                 newContent.push(newInfo);
             }

@@ -37,9 +37,11 @@ exports.readFile = readFile;
 function processFile(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const relativePath = path.relative(path.join(__dirname, 'template'), filePath);
-    const target = relativePath.replace(/\\/g, '/').split("/template/init")[1];
+    const target = relativePath.replace(/\\/g, '/');
+    const fileName = relativePath.replace(/\\/g, '/').split("/").at(-1);
     return {
         path: filePath,
+        fileName: fileName,
         target: target,
         content: fileContent
     };

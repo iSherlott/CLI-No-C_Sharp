@@ -8,11 +8,15 @@ import {
     setupControllerCommand,
     setupHandlerCommand,
     setupScaffoldCommand,
-    setupInjectorBootStrapper
+    setupInjectorBootStrapper,
+    setupScheuleAdd
 } from '../commands';
 
 export function setupCommands(program: Command) {
     program.name('nc');
+    setupHelpCommand(program);
+    setupInitCommand(program);
+    setupScaffoldCommand(program);
 
     const genCommand = new Command('g');
     program.addCommand(genCommand);
@@ -24,7 +28,7 @@ export function setupCommands(program: Command) {
     setupHandlerCommand(genCommand);
     setupInjectorBootStrapper(genCommand);
 
-    setupHelpCommand(program);
-    setupInitCommand(program);
-    setupScaffoldCommand(program);
+    const addCommand = new Command('add');
+    program.addCommand(addCommand);
+    setupScheuleAdd(addCommand);
 }

@@ -4,6 +4,7 @@ import * as path from 'path';
 interface ProcessResult {
     path: string;
     target?: string;
+    fileName?: string;
     content: any;
 }
 
@@ -21,10 +22,12 @@ export function processFile(filePath: string): ProcessResult {
 
     const relativePath: string = path.relative(path.join(__dirname, 'template'), filePath);
 
-    const target: string = relativePath.replace(/\\/g, '/').split("/template/init")[1];
+    const target: string = relativePath.replace(/\\/g, '/');
+    const fileName = relativePath.replace(/\\/g, '/').split("/").at(-1);
 
     return {
         path: filePath,
+        fileName: fileName,
         target: target,
         content: fileContent
     };

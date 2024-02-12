@@ -7,3 +7,4 @@ export { setupRepositoryCommand } from './gen-repository-command';
 export { setupControllerCommand } from './gen-controller-command';
 export { setupScaffoldCommand } from './scaffold-command'
 export { setupInjectorBootStrapper } from './gen-command-injectorBootStrapper'
+export { setupScheuleAdd } from './add-command-schedule';

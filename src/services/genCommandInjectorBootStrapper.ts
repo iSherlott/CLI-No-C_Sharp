@@ -1,9 +1,6 @@
 import Mustache from "mustache";
 
 import path from "path";
-import Controller from "../interfaces/controller.interface";
-
-import { readFile } from "../utils/readFile";
 
 import fs from 'fs';
 
@@ -30,7 +27,7 @@ export function genCommandInjectorBootStrapper(data: any) {
         for (const line of lines) {
             newContent.push(line);
 
-            if (line.includes("/* Repositories */")) {
+            if (line.includes("#region Repositories")) {
                 foundArea = true;
 
                 const indentation = line.match(/^\s*/)?.[0] || '';
@@ -40,7 +37,7 @@ export function genCommandInjectorBootStrapper(data: any) {
                 }
             }
 
-            if (line.includes("/* Handlers */")) {
+            if (line.includes("#region Handlers")) {
                 foundArea = true;
 
                 const indentation = line.match(/^\s*/)?.[0] || '';
@@ -52,12 +49,12 @@ export function genCommandInjectorBootStrapper(data: any) {
         }
 
         if (!foundArea) {
-            newContent.push('\n/* Repositories */');
+            newContent.push('\n#region Repositories');
             for (const newInfo of newData.repositories) {
                 newContent.push(newInfo);
             }
 
-            newContent.push('\n/* Handlers */');
+            newContent.push('\n#region Handlers');
             for (const newInfo of newData.handlers) {
                 newContent.push(newInfo);
             }

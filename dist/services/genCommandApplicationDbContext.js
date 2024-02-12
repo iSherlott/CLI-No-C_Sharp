@@ -20,7 +20,7 @@ function genCommandApplicationDbContext(data) {
         let foundArea = false;
         for (const line of lines) {
             newContent.push(line);
-            if (line.includes("/* DbSet */")) {
+            if (line.includes("#region DbSet")) {
                 foundArea = true;
                 const indentation = line.match(/^\s*/)?.[0] || '';
                 for (const newInfo of newData.context) {
@@ -30,7 +30,7 @@ function genCommandApplicationDbContext(data) {
             }
         }
         if (!foundArea) {
-            newContent.push('\n/* DbSet */');
+            newContent.push('\n#Region DbSet');
             for (const newInfo of newData.context) {
                 newContent.push(newInfo);
             }

@@ -31,10 +31,7 @@
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\IoC\IoC.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configurations" />
+    <!--ItemGroup-->
   </ItemGroup>
 
 </Project>

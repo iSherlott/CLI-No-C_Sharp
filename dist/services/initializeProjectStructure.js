@@ -50,7 +50,7 @@ function initializeProjectStructure(nomeProject) {
         template.forEach((elem) => {
             const data = {};
             const file = Mustache.render(elem.content, data);
-            const fileName = elem.target == "/Template.sln" ? `/${capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nomeProject)}.sln` : elem.target;
+            const fileName = elem.fileName == "Template.sln" ? `/${capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nomeProject)}.sln` : elem.target.split("/template/init")[1];
             fs_1.default.writeFileSync(projectPath + fileName, file);
         });
         console.log(`Projeto '${capitalizeFirstLetter_1.StringUtils.capitalizeFirstLetter(nomeProject)}' inicializado com sucesso.`);
