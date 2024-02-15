@@ -62,7 +62,7 @@ namespace API.Controllers
 
             var result = new { data = "Removed success!!!" };
 
-            return Ok(new CommandResult(result, HttpStatusCode.OK));
+            return Ok(new CommandResult(result, HttpStatusCode.NoContent));
         }
     }
 }

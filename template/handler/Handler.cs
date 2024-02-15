@@ -40,7 +40,7 @@ namespace Domain.Handlers
 
             await _{{name}}Repository.UpdateAsync(entity);
 
-            return new CommandResult(entity, HttpStatusCode.OK);
+            return new CommandResult(entity, HttpStatusCode.Created);
             
             {{/isUpdateCommand}}
             {{^isUpdateCommand}}
@@ -50,7 +50,7 @@ namespace Domain.Handlers
 
             await _{{name}}Repository.PostAsync(entity);
 
-            return new CommandResult(entity, HttpStatusCode.OK);
+            return new CommandResult(entity, HttpStatusCode.Created);
             {{/isUpdateCommand}}
         }
 
