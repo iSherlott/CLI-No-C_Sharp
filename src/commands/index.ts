@@ -8,3 +8,5 @@ export { setupControllerCommand } from './gen-controller-command';
 export { setupScaffoldCommand } from './scaffold-command'
 export { setupInjectorBootStrapper } from './gen-command-injectorBootStrapper'
 export { setupScheuleAdd } from './add-command-schedule';
+export { setupAzureAdd } from './add-command-azure';
+export { setupIdentityAdd } from './add-command-identity';

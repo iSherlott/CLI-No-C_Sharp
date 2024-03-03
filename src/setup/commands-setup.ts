@@ -9,7 +9,9 @@ import {
     setupHandlerCommand,
     setupScaffoldCommand,
     setupInjectorBootStrapper,
-    setupScheuleAdd
+    setupScheuleAdd,
+    setupAzureAdd,
+    setupIdentityAdd
 } from '../commands';
 
 export function setupCommands(program: Command) {
@@ -31,4 +33,6 @@ export function setupCommands(program: Command) {
     const addCommand = new Command('add');
     program.addCommand(addCommand);
     setupScheuleAdd(addCommand);
+    setupAzureAdd(addCommand);
+    setupIdentityAdd(addCommand);
 }

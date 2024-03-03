@@ -2,7 +2,7 @@ import { promises as fsPromises, readFileSync, writeFileSync } from 'fs';
 import generateGuid from '../utils/generateGuid';
 
 
-export async function genCommandSolution() {
+export async function genCommandSolution(ProjectName: string) {
     try {
         const currentDirectory = process.cwd();
 
@@ -19,7 +19,7 @@ export async function genCommandSolution() {
 
         const newData = {
             newProject: [
-                `Project("{${projectGuid}}") = "Schedule", "Schedule\\Schedule.csproj", "{${guid}}"`
+                `Project("{${projectGuid}}") = "${ProjectName}", "${ProjectName}\\${ProjectName}.csproj", "{${guid}}"`
             ],
             newCPU: [
                 `{${guid}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU`,

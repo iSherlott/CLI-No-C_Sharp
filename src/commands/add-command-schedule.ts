@@ -4,7 +4,7 @@ import { promises as fsPromises, mkdirSync, readFileSync, writeFileSync } from '
 import { genCommandSolution } from '../services/genCommandSolution';
 
 
-import path from 'path';
+import { updateItemGroup } from '../services/updateItemGroup';
 import { addSchedule } from '../services/addSchedule';
 
 export function setupScheuleAdd(parentCommand: Command) {
@@ -18,6 +18,8 @@ export function setupScheuleAdd(parentCommand: Command) {
 
             await addSchedule();
 
-            genCommandSolution();
+            genCommandSolution("Schedule");
+
+            updateItemGroup("API", [`<ProjectReference Include="..\\Schedule\\Schedule.csproj" />`]);
         });
 }

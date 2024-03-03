@@ -19,5 +19,7 @@ function setupCommands(program) {
     const addCommand = new commander_1.Command('add');
     program.addCommand(addCommand);
     (0, commands_1.setupScheuleAdd)(addCommand);
+    (0, commands_1.setupAzureAdd)(addCommand);
+    (0, commands_1.setupIdentityAdd)(addCommand);
 }
 exports.setupCommands = setupCommands;

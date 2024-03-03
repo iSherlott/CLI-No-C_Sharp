@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.genCommandSolution = void 0;
 const fs_1 = require("fs");
 const generateGuid_1 = __importDefault(require("../utils/generateGuid"));
-async function genCommandSolution() {
+async function genCommandSolution(ProjectName) {
     try {
         const currentDirectory = process.cwd();
         const files = await fs_1.promises.readdir(currentDirectory);
@@ -18,7 +18,7 @@ async function genCommandSolution() {
         const guid = (0, generateGuid_1.default)();
         const newData = {
             newProject: [
-                `Project("{${projectGuid}}") = "Schedule", "Schedule\\Schedule.csproj", "{${guid}}"`
+                `Project("{${projectGuid}}") = "${ProjectName}", "${ProjectName}\\${ProjectName}.csproj", "{${guid}}"`
             ],
             newCPU: [
                 `{${guid}}.Debug|Any CPU.ActiveCfg = Debug|Any CPU`,

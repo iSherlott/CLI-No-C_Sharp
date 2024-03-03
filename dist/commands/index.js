@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupScheuleAdd = exports.setupInjectorBootStrapper = exports.setupScaffoldCommand = exports.setupControllerCommand = exports.setupRepositoryCommand = exports.setupHandlerCommand = exports.setupCommandCommand = exports.setupEntityCommand = exports.setupInitCommand = exports.setupHelpCommand = void 0;
+exports.setupIdentityAdd = exports.setupAzureAdd = exports.setupScheuleAdd = exports.setupInjectorBootStrapper = exports.setupScaffoldCommand = exports.setupControllerCommand = exports.setupRepositoryCommand = exports.setupHandlerCommand = exports.setupCommandCommand = exports.setupEntityCommand = exports.setupInitCommand = exports.setupHelpCommand = void 0;
 var help_command_1 = require("./help-command");
 Object.defineProperty(exports, "setupHelpCommand", { enumerable: true, get: function () { return help_command_1.setupHelpCommand; } });
 var init_command_1 = require("./init-command");
@@ -21,3 +21,7 @@ var gen_command_injectorBootStrapper_1 = require("./gen-command-injectorBootStra
 Object.defineProperty(exports, "setupInjectorBootStrapper", { enumerable: true, get: function () { return gen_command_injectorBootStrapper_1.setupInjectorBootStrapper; } });
 var add_command_schedule_1 = require("./add-command-schedule");
 Object.defineProperty(exports, "setupScheuleAdd", { enumerable: true, get: function () { return add_command_schedule_1.setupScheuleAdd; } });
+var add_command_azure_1 = require("./add-command-azure");
+Object.defineProperty(exports, "setupAzureAdd", { enumerable: true, get: function () { return add_command_azure_1.setupAzureAdd; } });
+var add_command_identity_1 = require("./add-command-identity");
+Object.defineProperty(exports, "setupIdentityAdd", { enumerable: true, get: function () { return add_command_identity_1.setupIdentityAdd; } });

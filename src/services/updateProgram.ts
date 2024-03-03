@@ -3,7 +3,6 @@ import { readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 
 import Program from '../interfaces/program.interface';
-import { updateItemGroup } from './updateItemGroup';
 
 
 export async function updateProgram(newData: Program) {
@@ -38,8 +37,6 @@ export async function updateProgram(newData: Program) {
         }
 
         writeFileSync(filePath, newContent.join('\n'));
-
-        updateItemGroup("API", [`<ProjectReference Include="..\\Schedule\\Schedule.csproj" />`]);
 
         console.log('Program.cs updated successfully!');
     } catch (error) {
